@@ -34,14 +34,33 @@
     );
       echo form_input($usuario);
       echo '</div>';
+      echo '<div class="field">';
+      $password = array(
+        'name' => 'password',
+        'id' => 'password',
+        'maxlength' => '50',
+        'placeholder' => 'Password',
+
+      );
+      echo form_password($password);
+      echo '</div>';
+      echo '<div class="field">';
+      $email = array (
+        'name' => 'email',
+        'id' => 'id',
+        'maxlength' => '100',
+        'placeholder' => 'Email',
+      );
+      echo form_input($email);
+      echo '</div>';
       $forma_boton = array(
         'name' => 'botonregistrar',
         'value' => 'Enviar',
         'class' => 'ui button',
-        'type' => 'button',
+        'type' => 'submit',
 
       );
-      echo form_input($forma_boton);
+      echo form_button($forma_boton, 'Enviar');
           echo form_close();
       ?>
   </div>

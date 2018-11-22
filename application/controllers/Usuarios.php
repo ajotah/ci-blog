@@ -2,7 +2,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Usuarios extends CI_Controller {
-
+  public function __construct() {
+       parent::__construct();
+       $this->load->model('usuario_model');
+    }
 	/**
 	 * Index Page for this controller.
 	 *
@@ -28,7 +31,28 @@ class Usuarios extends CI_Controller {
   public function registrar()
 {
   $this->load->view('head');
-  $this->load->view('registrar_usuarios');
+  switch ($this->session->userdata('perfil')) {
+
+    case '':
+    $this->load->view('registrar_usuarios');
+    if ($this->input->post()) {
+      $usuario = $this->input->post('usuario');
+      $password = md5($this->input->post('password'));
+      $email = $this->input->post('email');
+      $insertar = $this->usuario_model->registrar($usuario,$password,$email);
+
+
+
+
+    }
+
+    break;
+    case 'publico':
+    $this->load->view('inicio');
+    break;
+  }
+
+
   $this->load->view('foot');
 }
 
