@@ -5,3 +5,10 @@ Blog en CI
 Blog programado con CI. Primera aplicación desarrollada en CodeIgniter, en este
 repositorio se mostrará el proceso completo de desarollo desde 0 y el desconocimiento
 de CI.
+
+###################
+BACK-END & FRONT-END
+###################
+
+En el BACK-END: CodeIgniter 3
+En el Front-END: Semantic UI 2.4
