@@ -23,8 +23,8 @@
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('semantic/components/icon.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('semantic/components/form.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('semantic/components/button.css'); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('semantic/components/message.css'); ?>">
 
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <!-- Fin de archivos CSS   -->
 
 
@@ -33,7 +33,7 @@
 Semantic UI + jQuery
 -->
 
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('semantic/dist/semantic.min.css'); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('semantic/dist/semantic.css'); ?>">
 <script
   src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="

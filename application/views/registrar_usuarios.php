@@ -10,8 +10,19 @@
 <div class="ten wide column">
 
   <!-- Centro, donde va la información principal -->
+  <?
+  if($this->session->flashdata('registro')) {
 
-  <div class="ui segment">
+    echo '<div class="ui attached positive message">
+  <div class="header">
+Registro completado.  </div>
+  <p>';
+  echo $this->session->flashdata('registro');
+  echo '</p></div>';
+  }
+
+  ?>
+  <div class="ui attached fluid segment">
 
 
 
