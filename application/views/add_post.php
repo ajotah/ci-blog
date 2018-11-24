@@ -38,37 +38,44 @@ OK!  </div>
 
 
 
-
       <?
-
-
+        if ($this->session->userdata('logged_in')) {
       $formulario = array(
-        'name'      => 'login',
-        'id'        => 'login',
+        'name'      => 'addpost',
+        'id'        => 'addpost',
         'class'     => 'ui form',
 
       );
-      echo form_open('usuarios/login', $formulario);
+      echo form_open('posts/addpost', $formulario);
       echo '<div class="field">';
-      echo form_label('Usuario', 'usuario');
-      $usuario = array(
-            'name'          => 'usuario',
-            'id'            => 'usuario',
-            'placeholder'         => 'Nombre usuario',
-            'maxlength'     => '50',
+      echo form_label('Titulo', 'titulo');
+      $titulo = array(
+            'name'          => 'titulo',
+            'id'            => 'titulo',
+            'placeholder'         => 'Título del post',
+            'maxlength'     => '255',
 
     );
-      echo form_input($usuario);
+      echo form_input($titulo);
       echo '</div>';
       echo '<div class="field">';
-      $password = array(
-        'name' => 'password',
-        'id' => 'password',
-        'maxlength' => '50',
-        'placeholder' => 'Password',
+      $contenido = array(
+        'name' => 'contenido',
+        'id' => 'contenido',
+        'placeholder' => 'Contenido del post..',
 
       );
-      echo form_password($password);
+      echo form_textarea($contenido);
+      echo '</div>';
+      echo '<div class="field">';
+      echo form_label('Tags', 'tags');
+      $tags = array (
+        'name' => 'tags',
+        'id' => 'tags',
+        'maxlength' => '255',
+        'placeholder' => 'tags',
+      );
+      echo form_input($tags);
       echo '</div>';
 
       $forma_boton = array(
@@ -81,7 +88,12 @@ OK!  </div>
       echo form_button($forma_boton, 'Enviar');
           echo form_close();
 
-    
+        } else {
+          
+          redirect('usuarios/login', 'refresh');
+
+
+        }
       ?>
   </div>
 
