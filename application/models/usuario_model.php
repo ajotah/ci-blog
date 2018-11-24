@@ -6,6 +6,21 @@ class Usuario_model extends CI_Model {
 
    public function registrar($usuario, $password, $email){
 
+$comprobar = array(
+'usuario' => $usuario,
+
+);
+$comprobacion = $this->db->get_where('usuarios', $comprobar);
+$contar = $comprobacion->num_rows();
+
+if($contar >= 1) {
+
+  $this->session->set_flashdata('error', 'El usuario ya existe, por favor intentelo con otro.');
+  redirect('usuarios/registrar', 'refresh');
+
+} else {
+
+
   $datosregistro = array(
 
   'usuario' => $usuario,
@@ -17,16 +32,16 @@ class Usuario_model extends CI_Model {
   $this->db->insert('usuarios', $datosregistro);
   if ($this->db->trans_status() === FALSE) {
 
-    $this->session->set_flashdata('registro', 'Hubo un error en el registro.');
+    $this->session->set_flashdata('error', 'Hubo un error en el registro.');
     redirect('usuarios/registrar', 'refresh');
   } else {
 
 
-    $this->session->set_flashdata('registro', '¡Se registro correctamente!');
+    $this->session->set_flashdata('afirmacion', '¡Se registro correctamente!');
     redirect('usuarios', 'refresh');
   }
 
-
+}
 
 
 

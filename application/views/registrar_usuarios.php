@@ -11,13 +11,25 @@
 
   <!-- Centro, donde va la información principal -->
   <?
-  if($this->session->flashdata('registro')) {
+  if($this->session->flashdata('error')) {
+
+    echo '<div class="ui attached warning message">
+  <div class="header">
+¡Error!  </div>
+  <p>';
+  echo $this->session->flashdata('error');
+  echo '</p></div>';
+  }
+
+  ?>
+  <?
+  if($this->session->flashdata('afirmacion')) {
 
     echo '<div class="ui attached positive message">
   <div class="header">
-Registro completado.  </div>
+OK!  </div>
   <p>';
-  echo $this->session->flashdata('registro');
+  echo $this->session->flashdata('afirmacion');
   echo '</p></div>';
   }
 
