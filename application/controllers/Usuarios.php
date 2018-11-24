@@ -71,6 +71,24 @@ public function login()
     $usuario = $this->input->post('usuario');
     $password = md5($this->input->post('password'));
     $insertar = $this->usuario_model->login($usuario,$password);
+    if($insertar) {
+      $datosusuario = array(
+                     'id' => $insertar->id,
+                     'usuario' => $insertar->usuario,
+                     'logged_in' => TRUE
+                  );
+
+
+      $this->session->set_userdata($datosusuario);
+      redirect('/', 'refresh');
+
+    } else {
+
+    echo 'Error: Usuario y/o contraseña erróneos.';
+    redirect('usuarios/login', 'refresh');
+
+
+    }
 
 
 
