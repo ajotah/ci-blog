@@ -81,4 +81,12 @@ public function login()
 
 }
 
+public function logout()
+{
+  session_destroy();
+  redirect('/', 'refresh');
+
+
+}
+
 }
