@@ -49,5 +49,43 @@ if($contar >= 1) {
 }
 
 
+public function login($usuario, $password) {
+
+$datos = array(
+
+'usuario' => $usuario,
+'password' => $password,
+
+);
+
+$comprobacion = $this->db->get_where('usuarios', $datos);
+$contar = $comprobacion->num_rows();
+$resultado = $comprobacion->result();
+
+$data['id'] = $resultado->id;
+
+if($contar >= 1) {
+
+
+  $sessiondates = array(
+          'id'  => $data['id'],
+          'logged_in' => TRUE
+  );
+
+  $this->session->set_userdata($sessiondates);
+  redirect('/', 'refresh');
+
+} else {
+
+echo 'Error: Usuario y/o contraseña erróneos.';
+redirect('usuarios/login', 'refresh');
+
+
+}
+
+
+
+}
+
 
    }

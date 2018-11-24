@@ -20,7 +20,13 @@ class Principal extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('principal');
+		$this->load->view('head');
+
+		echo 'Aqui iran los posts';
+
+		
+		$this->load->view('foot');
+
 	}
 
   public function opcion1()

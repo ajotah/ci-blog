@@ -24,14 +24,21 @@ class Usuarios extends CI_Controller {
 	public function index()
 	{
     $this->load->view('head');
-		$this->load->view('registrar_usuarios');
+    if ($this->session->userdata('logged_in')) {
+
+echo 'Esta ok, esto es panel administracion.';
+
+  } else {
+    $this->load->view('login');
+
+    }
     $this->load->view('foot');
 	}
 
   public function registrar()
 {
   $this->load->view('head');
-  switch ($this->session->userdata('perfil')) {
+  switch ($this->session->userdata('logged_in')) {
 
     case '':
     $this->load->view('registrar_usuarios');
@@ -48,12 +55,30 @@ class Usuarios extends CI_Controller {
 
     break;
     case 'publico':
-    $this->load->view('inicio');
+    redirect('usuarios/login', 'refresh');
     break;
   }
 
 
   $this->load->view('foot');
+}
+
+public function login()
+{
+  $this->load->view('head');
+
+  if ($this->input->post()) {
+    $usuario = $this->input->post('usuario');
+    $password = md5($this->input->post('password'));
+    $insertar = $this->usuario_model->login($usuario,$password);
+
+
+
+
+  }
+
+    $this->load->view('foot');
+
 }
 
 }
