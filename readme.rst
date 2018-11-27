@@ -11,4 +11,4 @@ BACK-END & FRONT-END
 ###################
 
 En el BACK-END: CodeIgniter 3
-En el Front-END: Semantic UI 2.4
+En el Front-END: Bulma 0.7.2
