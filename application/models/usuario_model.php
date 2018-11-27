@@ -58,12 +58,8 @@ $datos = array(
 
 );
 
-$this->db->select('id, usuario');
-     $this->db->from('usuarios');
-     $this->db->where($datos);
-     $consulta = $this->db->get();
-     $resultado = $consulta->row();
-     return $resultado;
+$this->db->where($datos);
+   return $this->db->get('usuarios')->row();
 
 
 }

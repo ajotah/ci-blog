@@ -75,6 +75,7 @@ public function login()
       $datosusuario = array(
                      'id' => $insertar->id,
                      'usuario' => $insertar->usuario,
+                     'rango' => $insertar->rango,
                      'logged_in' => TRUE
                   );
 

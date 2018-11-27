@@ -17,9 +17,12 @@
 	</div>
 </div>
 <footer class="card-footer">
-	<a href="#" class="card-footer-item">Save</a>
-	<a href="#" class="card-footer-item">Edit</a>
-	<a href="#" class="card-footer-item">Delete</a>
+<?     if ($this->session->userdata('logged_in')) {
+	if ($this->session->userdata('rango') == "admin") {?>
+
+	<a href="#" class="card-footer-item">Editar</a>
+<? }} ?>
+	<a href="#" class="card-footer-item">Comentarios (0)</a>
 </footer>
 </div>
 <br>
