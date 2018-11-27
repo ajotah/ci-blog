@@ -54,8 +54,8 @@ echo 'Esta ok, esto es panel administracion.';
     }
 
     break;
-    case 'publico':
-    redirect('usuarios/login', 'refresh');
+    case 'logged_in':
+    redirect('/', 'refresh');
     break;
   }
 

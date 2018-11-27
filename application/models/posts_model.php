@@ -9,9 +9,8 @@ class Posts_model extends CI_Model {
      $this->db->select('id, titulo, tituloseo, contenido, fecha, tags');
           $this->db->from('posts');
           $this->db->order_by('id');
-          $consulta = $this->db->get();
-          $datos = $consulta->result();
-          return $datos;
+          return $this->db->get()->result();
+
 
    }
 

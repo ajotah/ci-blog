@@ -25,17 +25,9 @@ class Principal extends CI_Controller {
 	{
 		$this->load->view('head');
 
-		$insertar = $this->posts_model->posts();
-		if($insertar) {
-		foreach ($insertar as $datos)
-{
-        echo $datos->titulo; // access attributes
-        echo $datos->contenido; // or methods defined on the 'User' class
-}
-} else {
+		$data['posts'] = $this->posts_model->posts();
+		$this->load->view('principal', $data);
 
-	echo 'No hay posts';
-}
 		$this->load->view('foot');
 
 	}
