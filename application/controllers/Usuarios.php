@@ -84,14 +84,17 @@ public function login()
 
     } else {
 
-    echo 'Error: Usuario y/o contraseña erróneos.';
-    redirect('usuarios/login', 'refresh');
+      $this->session->set_flashdata('error', 'El nombre de usuario/contraseña no coinciden.');
+      redirect('usuarios', 'refresh');
 
 
     }
 
 
 
+
+  } else {
+    redirect('usuarios', 'refresh');
 
   }
 

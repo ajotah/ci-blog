@@ -3,6 +3,7 @@
 
 <div class="column is-8 is-offset-2 is-offset-one-quarter">
   <!-- Centro, donde va la información principal -->
+    <div class="box">
   <?
   if($this->session->flashdata('error')) {
 
@@ -27,7 +28,7 @@ OK!  </div>
   }
 
   ?>
-  <div class="box">
+
 
 
 
@@ -73,7 +74,7 @@ OK!  </div>
 
       echo '<div class="field">';
 
-      echo '<div class="control">';
+      echo '<p class="control has-icons-left">';
       $email = array (
         'name' => 'email',
         'id' => 'id',
@@ -83,17 +84,19 @@ OK!  </div>
       );
       echo form_input($email);
 
-      echo '</div>';
+      echo'<span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>';
+      echo '</span>';
       echo '</div>';
 
       $forma_boton = array(
         'name' => 'botonregistrar',
         'value' => 'Enviar',
-        'class' => 'button',
+        'class' => 'button is-primary',
         'type' => 'submit',
 
       );
-      echo form_button($forma_boton, 'Enviar');
+      echo form_button($forma_boton, 'Registrarse');
           echo form_close();
       ?>
   </div>

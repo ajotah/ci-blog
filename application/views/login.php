@@ -3,33 +3,31 @@
 
 <!-- Columna Izquierda -->
 <div class="column is-8 is-offset-2 is-offset-one-quarter">
-
+  <div class="box">
   <!-- Centro, donde va la información principal -->
   <?
   if($this->session->flashdata('error')) {
 
-    echo '<div class="ui attached warning message">
-  <div class="header">
-¡Error!  </div>
-  <p>';
+    echo '<div class="notification is-danger">
+  <button class="delete"></button>
+';
   echo $this->session->flashdata('error');
-  echo '</p></div>';
+  echo '</div>';
   }
 
   ?>
   <?
   if($this->session->flashdata('afirmacion')) {
 
-    echo '<div class="ui attached positive message">
-  <div class="header">
-OK!  </div>
-  <p>';
+    echo '<div class="notification is-success">
+  <button class="delete"></button>
+  ';
   echo $this->session->flashdata('afirmacion');
-  echo '</p></div>';
+  echo '</div>';
   }
 
   ?>
-  <div class="box">
+
 
 
 
@@ -80,7 +78,7 @@ echo'<span class="icon is-small is-left">
       $forma_boton = array(
         'name' => 'botonregistrar',
         'value' => 'Enviar',
-        'class' => 'button',
+        'class' => 'button is-primary',
         'type' => 'submit',
 
       );
