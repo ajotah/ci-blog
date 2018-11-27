@@ -27,7 +27,7 @@ class Principal extends CI_Controller {
 
 		$insertar = $this->posts_model->posts();
 		if($insertar) {
-		foreach ($instertar as $datos)
+		foreach ($insertar as $datos)
 {
         echo $datos->titulo; // access attributes
         echo $datos->contenido; // or methods defined on the 'User' class
