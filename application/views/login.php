@@ -82,12 +82,20 @@ echo'<span class="icon is-small is-left">
         'type' => 'submit',
 
       );
+
+      echo'<div class="action-buttons">';
       echo form_button($forma_boton, 'Enviar');
           echo form_close();
 
-
+echo '<a class="button is-danger" href="'.base_url("index.php/usuarios/registrar").'">
+<span class="icon">
+<i class="fas fa-beer"></i>
+</span>
+<span>Registrarse</span>
+</a>
+</div></div>';
       ?>
-  </div>
+
 
 </div>
 

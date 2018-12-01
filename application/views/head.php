@@ -12,6 +12,8 @@
      <!--   Archivos CSS     -->
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('bulma/bulma.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('bulma/personalizado.css'); ?>">
+
 
 <!-- Fin de archivos CSS   -->
 
@@ -20,7 +22,7 @@
     <section>
     <nav class="navbar is-space is-fixed-top">
       <div class="navbar-brand">
-      
+
         <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
           <span></span>
           <span></span>
@@ -31,11 +33,14 @@
       <div id="navbarExampleTransparentExample" class="navbar-menu">
         <div class="navbar-start">
           <a class="navbar-item" href="https://bulma.io/">
-            Home
+            Inicio
+          </a>
+          <a class="navbar-item" href="https://bulma.io/">
+            Proyectos
           </a>
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
-              Docs
+              Categorías
             </a>
             <div class="navbar-dropdown is-boxed">
               <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
@@ -67,22 +72,36 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="field is-grouped">
+              <?     if ($this->session->userdata('logged_in')) {
+              	if ($this->session->userdata('rango') == "admin") { ?>
+                  <p class="control">
+                  <a class="button" href="<?php echo base_url('index.php/usuarios/logout'); ?>">
+                    <span class="icon">
+                      <i class="fas fa-times-circle"></i>
+                    </span>
+                    <span>
+                      Salir
+                    </span>
+                  </a>
+                  </p>
+            <? } } else { ?>
               <p class="control">
-                <a class="bd-tw-button button" data-social-network="Twitter" data-social-action="tweet" data-social-target="http://localhost:4000" target="_blank" href="https://twitter.com/intent/tweet?text=Bulma: a modern CSS framework based on Flexbox&amp;hashtags=bulmaio&amp;url=http://localhost:4000&amp;via=jgthms">
-                  <span class="icon">
-                    <i class="fab fa-twitter"></i>
-                  </span>
-                  <span>
-                    Tweet
-                  </span>
-                </a>
-              </p>
+            <a class="button" href="<?php echo base_url('index.php/usuarios'); ?>">
+              <span class="icon">
+                <i class="fas fa-user"></i>
+              </span>
+              <span>
+                Login
+              </span>
+            </a>
+          </p>
+          <?  } ?>
               <p class="control">
-                <a class="button is-primary" href="https://github.com/jgthms/bulma/releases/download/0.7.2/bulma-0.7.2.zip">
+                <a class="button is-primary" href="https://github.com/ajotah?tab=repositories" target="_blank">
                   <span class="icon">
-                    <i class="fas fa-download"></i>
+                    <i class="fab fa-github"></i>
                   </span>
-                  <span>Download</span>
+                  <span>Perfil Github</span>
                 </a>
               </p>
             </div>

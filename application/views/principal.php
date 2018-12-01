@@ -10,8 +10,8 @@
 <div class="card">
 <div class="card-content">
 	<div class="content">
-	<h2><?=$post->titulo?></h2>
-		<p><?=$post->contenido?></p>
+	<h2><?=$post['titulo']?></h2>
+		<p><?=$post['contenido']?></p>
 		<br>
 		<time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
 	</div>
@@ -27,6 +27,10 @@
 </div>
 <br>
 <?php endforeach; ?>
+
+
+
+<?php echo $this->paginator->get_links('posts', 'bulma'); ?>
 
 <?php else : ?>
 NO HAY POSTS

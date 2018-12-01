@@ -25,7 +25,8 @@ class Principal extends CI_Controller {
 	{
 		$this->load->view('head');
 
-		$data['posts'] = $this->posts_model->posts();
+		$posteos = $this->posts_model->posts();
+		$data['posts'] = $this->paginator->paginate($posteos, ['base_url' => "/", 'per_page' => 3]);
 		$this->load->view('principal', $data);
 
 		$this->load->view('foot');
