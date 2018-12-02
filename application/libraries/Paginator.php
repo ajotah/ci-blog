@@ -195,8 +195,8 @@ class Paginator
         $config['cur_tag_close'] 	= '</a></li>';
 
         $config['next_tag_open'] 	= '<li>
-      <span class="pagination-ellipsis">&hellip;';
-        $config['next_tagl_close'] 	= '</span></li>';
+      ';
+        $config['next_tagl_close'] 	= '</li>';
 
         $config['prev_tag_open'] 	= '<li>';
         $config['prev_tagl_close'] 	= '</li>';

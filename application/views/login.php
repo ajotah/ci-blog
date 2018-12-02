@@ -13,8 +13,7 @@
 ';
   echo $this->session->flashdata('error');
   echo '</div>';
-  }
-
+}
   ?>
   <?
   if($this->session->flashdata('afirmacion')) {

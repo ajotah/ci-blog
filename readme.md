@@ -1,26 +1,19 @@
-###################
-Blog en CI
-###################
 
-Blog programado con CI. Primera aplicación desarrollada en CodeIgniter, en este
-repositorio se mostrará el proceso completo de desarollo desde 0 y el desconocimiento
-de CI.
+<h1>CI-bulma_config</h1>
 
-###################
-BACK-END & FRONT-END
-###################
+Sistema de bloggin programado en CODEIGNITER 3 y Bulma CSS. Cuenta con gestión de usuarios, sesiones, posts, categorias, tags, panel administración, sistemas de likes, comentarios...
+
 
 En el BACK-END: CodeIgniter 3
 En el Front-END: Bulma 0.7.2
 
-###################
-Screenshot INICIO
-###################
 
-# <img src="imagenes_repositorio/captura1.png">
+<h1>Screenshot INICIO</h1>
 
-###################
+<img src="imagenes_repositorio/captura1.png">
+
+<h1>
 Screenshot Post y Comentarios
-###################
+</h1>
 
-# <img src="imagenes_repositorio/captura2.png">
+<img src="imagenes_repositorio/captura2.png">

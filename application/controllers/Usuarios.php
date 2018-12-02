@@ -43,11 +43,19 @@ echo 'Esta ok, esto es panel administracion.';
     case '':
     $this->load->view('registrar_usuarios');
     if ($this->input->post()) {
+      $this->form_validation->set_rules('usuario', 'Usuario', 'required');
+      $this->form_validation->set_rules('password', 'Password', 'required');
+      $this->form_validation->set_rules('email', 'Email', 'required');
+      if($this->form_validation->run() == FALSE)
+      			{
+              $this->session->set_flashdata('error', '¡No puedes dejar ningún campo en blanco!');
+              redirect('usuarios/registrar', 'refresh');
+            } else {
       $usuario = $this->input->post('usuario');
       $password = md5($this->input->post('password'));
       $email = $this->input->post('email');
       $insertar = $this->usuario_model->registrar($usuario,$password,$email);
-
+}
 
 
 
@@ -68,6 +76,13 @@ public function login()
   $this->load->view('head');
 
   if ($this->input->post()) {
+      $this->form_validation->set_rules('usuario', 'Usuario', 'required');
+      $this->form_validation->set_rules('password', 'Password', 'required');
+      if($this->form_validation->run() == FALSE)
+      			{
+              $this->session->set_flashdata('error', '¡No puedes dejar ningún campo en blanco!');
+              redirect('usuarios', 'refresh');
+            } else {
     $usuario = $this->input->post('usuario');
     $password = md5($this->input->post('password'));
     $insertar = $this->usuario_model->login($usuario,$password);
@@ -91,7 +106,7 @@ public function login()
 
     }
 
-
+}
 
 
   } else {
