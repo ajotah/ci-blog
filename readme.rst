@@ -17,10 +17,10 @@ En el Front-END: Bulma 0.7.2
 Screenshot INICIO
 ###################
 
-![Cat](../master/imagenes_repositorio/image.png)
+# <img src="imagenes_repositorio/captura1.png">
 
 ###################
 Screenshot Post y Comentarios
 ###################
 
-![Cat](../master/imagenes_repositorio/captura2.png)
+# <img src="imagenes_repositorio/captura2.png">
