@@ -13,7 +13,7 @@ En el Front-END: Bulma 0.7.2
 <li> Modifica el archivo /config/database.php con los datos de tu base de datos </li>
 <li> Modifica "base_url" en /config/config.php <pre>
 $config['base_url'] = 'http://localhost/blog/ci-blog';
-</pre></li>
+</pre> to <pre>$config['base_url'] = 'YOU URL'; </pre></li>
 <li> Registra tu usuario y desde phpmyadmin modifica el campo "rango" por "admin" </li>
 <li> Login y accede al panel de administración </li>
 </ul>
