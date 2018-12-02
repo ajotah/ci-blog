@@ -31,7 +31,7 @@ class Comentarios extends CI_Controller {
 
 public function add($id)
 {
-
+  if ($this->session->userdata('logged_in')) {
   if ($this->input->post()) {
     $contenido = $this->input->post('contenido');
     $articulo = $id;
@@ -47,6 +47,11 @@ public function add($id)
       redirect('posts/ver/'.$id.'', 'refresh');
 
     }
+
+}
+} else {
+
+  redirect('posts/ver/'.$id.'', 'refresh');
 
 }
 }
