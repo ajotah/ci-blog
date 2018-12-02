@@ -10,20 +10,57 @@
 <div class="card">
 <div class="card-content">
 	<div class="content">
-	<h2><?=$post['titulo']?></h2>
-		<p><?=$post['contenido']?></p>
-		<br>
-		<time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+<article>
+<h2><?=$post['titulo']?></h2>
+
+		<p><?=substr($post['contenido'],0, 300)?>...</p>
+</article>
 	</div>
 </div>
-<footer class="card-footer">
+<nav class="level">
+<div class="level-left">
+<div class="level-item card-footer-item">
+	<span class="button is-small is-text">
+
+	<span class="icon is-small">
+	 <i class="far fa-calendar-alt"></i>
+	</span>
+	 <span>12/12/2018</span></span></div>
+</div>
+  <div class="level-right">
+		<div class="level-item">
+	<div class="buttons has-addons card-footer-item">
 <?     if ($this->session->userdata('logged_in')) {
 	if ($this->session->userdata('rango') == "admin") {?>
-
-	<a href="#" class="card-footer-item">Editar</a>
+		<a href="#">
+<span class="button is-small is-light">
+	<span class="icon is-small">
+	 <i class="fas fa-edit"></i>
+ </span>
+	 <span>Editar</span>
+</span>
+</a>
 <? }} ?>
-	<a href="#" class="card-footer-item">Comentarios (0)</a>
-</footer>
+<a href="#">
+<span class="button is-small is-light">
+<span class="icon is-small">
+<i class="fas fa-comments"></i>
+</span>
+<span>Comentarios</span>
+</span>
+</a>
+<a href="#">
+<span class="button is-small is-light">
+<span class="icon is-small">
+<i class="fas fa-glasses"></i>
+</span>
+<span>Leer más</span>
+</span>
+</a>
+
+</div>
+</div>
+</div>
 </div>
 <br>
 <?php endforeach; ?>

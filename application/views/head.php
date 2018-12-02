@@ -12,7 +12,6 @@
      <!--   Archivos CSS     -->
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('bulma/bulma.css'); ?>">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('bulma/personalizado.css'); ?>">
 
 
 <!-- Fin de archivos CSS   -->
