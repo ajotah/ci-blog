@@ -12,6 +12,7 @@
      <!--   Archivos CSS     -->
 <script defer src="<?php echo base_url('bulma/index.js'); ?>"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('bulma/bulma.css'); ?>">
+<link rel="stylesheet" href="https://unpkg.com/bulmaswatch/materia/bulmaswatch.min.css">
 <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
 
 <style>
@@ -28,6 +29,7 @@ header {
   left: -50vw;
   border-radius: 90vw;
   opacity: .6;
+  z-index: -1;
 }
 
 .flow-1 {
@@ -140,7 +142,7 @@ header {
             <a class="navbar-item" href="https://bulma.io/">
               Proyectos
             </a>
-            
+
             </div>
           </div>
 

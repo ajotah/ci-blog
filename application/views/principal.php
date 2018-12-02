@@ -3,7 +3,7 @@
 
 <!-- Columna Izquierda -->
 <div class="column is-8 is-offset-2 is-offset-one-quarter">
-	<div style="padding: 5px;">
+	<div style="padding: 5px; z-index:1;">
 
 	<div class="level">
 		<div class="level-item">
