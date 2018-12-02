@@ -33,10 +33,6 @@ class Principal extends CI_Controller {
 
 	}
 
-  public function opcion1()
 
-{
 
-  $this->load->view('opcion1');
-}
 }

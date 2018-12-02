@@ -4,14 +4,13 @@
 <!-- Columna Izquierda -->
 <div class="column is-8 is-offset-2 is-offset-one-quarter">
 
-	<?php if (!empty($posts)) : ?>
-		<?php foreach($posts as $post) : ?>
+		<?php foreach($contenido as $post) : ?>
 
 <div class="card">
 <div class="card-content">
 	<div class="content">
 <article>
-<h2><a href="<?php echo base_url('index.php/posts/ver/'.$post['id'].''); ?>"><?=$post['titulo']?></a></h2>
+<h2><?=$post['titulo']?></h2>
 
 		<p><?=substr($post['contenido'],0, 300)?>...</p>
 </article>
@@ -41,22 +40,6 @@
 </span>
 </a>
 <? }} ?>
-<a href="#">
-<span class="button is-small is-light">
-<span class="icon is-small">
-<i class="fas fa-comments"></i>
-</span>
-<span>Comentarios</span>
-</span>
-</a>
-<a href="#">
-<span class="button is-small is-light">
-<span class="icon is-small">
-<i class="fas fa-glasses"></i>
-</span>
-<span>Leer más</span>
-</span>
-</a>
 
 </div>
 </div>
@@ -64,14 +47,6 @@
 </div>
 <br>
 <?php endforeach; ?>
-
-
-
-<?php echo $this->paginator->get_links('posts', 'bulma'); ?>
-
-<?php else : ?>
-NO HAY POSTS
-<?php endif; ?>
 </div>
 </div>
 </div>

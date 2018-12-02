@@ -56,4 +56,23 @@ if ($this->input->post()) {
 
 
 }
+
+public function ver($id=null)
+{
+$this->load->view('head');
+if($id){
+$data['contenido'] = $this->posts_model->ver($id);
+$this->load->view('ver_post', $data);
+$this->load->view('formu_comentarios', $data);
+$this->load->model('comentarios_model');
+$data2['comentarios'] = $this->comentarios_model->ver_comentarios($id);
+$this->load->view('ver_comentarios', $data2);
+$this->load->view('foot');
+} else {
+
+echo "Posts relacionados";
+}
+
+}
+
 }
