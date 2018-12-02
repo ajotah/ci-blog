@@ -3,6 +3,20 @@
 
 <!-- Columna Izquierda -->
 <div class="column is-8 is-offset-2 is-offset-one-quarter">
+	<div style="padding: 5px;">
+
+	<?php foreach($usuario as $user) : ?>
+
+	<div class="box box2"><div class="has-text-centered">
+													<figure class="avatar is-64x64">
+															<img src="https://placehold.it/64x64">
+													</figure>
+													</div>
+														Escrito por <strong> <?=$user->nombre?></strong><br>
+															<span class="is-italic"><?=$user->descripcion?></span>
+											</div>
+										<?php endforeach; ?>
+
 
 		<?php foreach($contenido as $post) : ?>
 
@@ -47,6 +61,7 @@
 </div>
 <br>
 <?php endforeach; ?>
+</div>
 </div>
 </div>
 </div>

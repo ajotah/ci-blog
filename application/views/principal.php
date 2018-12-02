@@ -3,7 +3,15 @@
 
 <!-- Columna Izquierda -->
 <div class="column is-8 is-offset-2 is-offset-one-quarter">
+	<div style="padding: 5px;">
 
+	<div class="level">
+		<div class="level-item">
+	<h1 class="subtitle is-2 has-text-weight-light">
+	                            <strong><span class="txt-rotate" data-period="200" data-rotate='[ "Bienvenido !", "Welcome !" ]'></span></strong>
+	                            <i class="em em-smile"></i>
+	                        </h1>
+												</div></div>
 	<?php if (!empty($posts)) : ?>
 		<?php foreach($posts as $post) : ?>
 
@@ -11,7 +19,7 @@
 <div class="card-content">
 	<div class="content">
 <article>
-<h2><a href="<?php echo base_url('index.php/posts/ver/'.$post['id'].''); ?>"><?=$post['titulo']?></a></h2>
+<h2><?=$post['titulo']?></h2>
 
 		<p><?=substr($post['contenido'],0, 300)?>...</p>
 </article>
@@ -49,7 +57,7 @@
 <span>Comentarios</span>
 </span>
 </a>
-<a href="#">
+<a href="<?php echo base_url('index.php/posts/ver/'.$post['id'].''); ?>">
 <span class="button is-small is-light">
 <span class="icon is-small">
 <i class="fas fa-glasses"></i>
@@ -72,6 +80,7 @@
 <?php else : ?>
 NO HAY POSTS
 <?php endif; ?>
+</div>
 </div>
 </div>
 </div>

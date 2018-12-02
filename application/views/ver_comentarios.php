@@ -3,6 +3,7 @@
 
 <!-- Columna Izquierda -->
 <div class="column is-8 is-offset-2 is-offset-one-quarter">
+  <div style="padding: 5px;">
 <?if(!empty($comentarios)) :?>
 <?php foreach($comentarios as $contenido) : ?>
   <article class="media">
@@ -25,8 +26,14 @@
 </article>
 <?php endforeach; ?>
 <?php else : ?>
-No hay comentarios
-<?php endif; ?>
+  <article class="message is-warning">
+    <div class="message-body">
+      <div class="level">
+        <div class="level-item">
+  Aun no hay comentarios. ¿Quieres ser el primero? &nbsp;<span class="txt-rotate" data-period="200" data-rotate='[ " ¡Animate!", " ¿A que esperas?" ]'></span>&nbsp;
+<i class="em em-pencil2"></i>  </div> </div> </div>
+  </article><?php endif; ?>
+</div>
 </div>
 </div>
 </div>

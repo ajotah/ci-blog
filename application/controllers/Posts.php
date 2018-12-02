@@ -5,6 +5,8 @@ class Posts extends CI_Controller {
   public function __construct() {
        parent::__construct();
        $this->load->model('posts_model');
+       $this->load->model('usuario_model');
+
     }
 	/**
 	 * Index Page for this controller.
@@ -24,8 +26,12 @@ class Posts extends CI_Controller {
 	public function index()
 	{
     $this->load->view('head');
-    $this->load->view('principal');
-    $this->load->view('foot');
+
+		$posteos = $this->posts_model->posts();
+		$data['posts'] = $this->paginator->paginate($posteos, ['base_url' => "/", 'per_page' => 3]);
+		$this->load->view('principal', $data);
+
+		$this->load->view('foot');
 	}
 
   public function addpost()
@@ -61,7 +67,11 @@ public function ver($id=null)
 {
 $this->load->view('head');
 if($id){
+
 $data['contenido'] = $this->posts_model->ver($id);
+$comprobacion = $this->posts_model->autor($id);
+$data['usuario'] = $this->usuario_model->obtenerdatos($comprobacion->autor);
+
 $this->load->view('ver_post', $data);
 $this->load->view('formu_comentarios', $data);
 $this->load->model('comentarios_model');

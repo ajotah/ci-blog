@@ -45,4 +45,14 @@ return $resultado;
 
    }
 
+   public function autor($id){
+
+
+     $this->db->select('autor', 'descripcion');
+      $this->db->from('posts');
+      $this->db->where('id', $id);
+      $consulta = $this->db->get();
+      return $consulta->row();
+   }
+
    }

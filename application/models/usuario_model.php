@@ -64,5 +64,14 @@ $this->db->where($datos);
 
 }
 
+public function obtenerdatos($id){
+
+  $this->db->from('usuarios');
+  $this->db->where('id', $id);
+  $consulta = $this->db->get();
+  $resultado = $consulta->result();
+  return $resultado;
+}
+
 
    }

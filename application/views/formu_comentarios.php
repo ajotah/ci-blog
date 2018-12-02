@@ -3,6 +3,8 @@
 
 <!-- Columna Izquierda -->
 <div class="column is-8 is-offset-2 is-offset-one-quarter">
+  <div style="padding: 5px;">
+
   <?
   if($this->session->flashdata('error')) {
 
@@ -48,6 +50,7 @@
     </div>
   </article>
   </form>
+</div>
 </div>
 </div>
 </div>
