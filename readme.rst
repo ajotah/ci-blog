@@ -12,3 +12,15 @@ BACK-END & FRONT-END
 
 En el BACK-END: CodeIgniter 3
 En el Front-END: Bulma 0.7.2
+
+###################
+Screenshot INICIO
+###################
+
+![Cat](../master/imagenes_repositorio/image.png)
+
+###################
+Screenshot Post y Comentarios
+###################
+
+![Cat](../master/imagenes_repositorio/captura2.png)
