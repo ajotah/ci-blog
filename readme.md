@@ -1,5 +1,5 @@
 
-<h1>CI-bulma_config</h1>
+<h1>CI-Blog</h1>
 
 Sistema de bloggin programado en CODEIGNITER 3 y Bulma CSS. Cuenta con gestión de usuarios, sesiones, posts, categorias, tags, panel administración, sistemas de likes, comentarios...
 
