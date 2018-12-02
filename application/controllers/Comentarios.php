@@ -33,6 +33,13 @@ public function add($id)
 {
   if ($this->session->userdata('logged_in')) {
   if ($this->input->post()) {
+    $this->form_validation->set_rules('contenido', 'Escribir un comentario...', 'required');
+    if($this->form_validation->run() == FALSE)
+    			{
+            $this->session->set_flashdata('error', 'No has cumplimentado correctamente el comentario. No lo dejes en blanco, no uses caracteres extraños.');
+            redirect('posts/ver/'.$id.'', 'refresh');
+
+          } else {
     $contenido = $this->input->post('contenido');
     $articulo = $id;
     $insertar = $this->comentarios_model->add_comentario($articulo,$contenido);
@@ -48,6 +55,7 @@ public function add($id)
 
     }
 
+}
 }
 } else {
   $this->session->set_flashdata('error', '¡Debes iniciar sesión para comentar!');
