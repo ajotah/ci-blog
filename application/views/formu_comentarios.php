@@ -39,7 +39,7 @@
     <div class="media-content">
       <div class="field">
         <p class="control">
-          <textarea class="textarea" name="contenido" id="contenido" placeholder="Add a comment..."></textarea>
+          <textarea class="textarea is-primary" name="contenido" id="contenido" placeholder="Escribe un comentario..."></textarea>
         </p>
       </div>
       <div class="field">

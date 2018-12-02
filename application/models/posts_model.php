@@ -8,7 +8,7 @@ class Posts_model extends CI_Model {
 
      $this->db->select('id, titulo, tituloseo, contenido, fecha, tags');
           $this->db->from('posts');
-          $this->db->order_by('id');
+          $this->db->order_by('id', 'desc');
           return $this->db;
 
 

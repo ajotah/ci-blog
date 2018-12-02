@@ -50,7 +50,7 @@ public function add($id)
 
 }
 } else {
-
+  $this->session->set_flashdata('error', '¡Debes iniciar sesión para comentar!');
   redirect('posts/ver/'.$id.'', 'refresh');
 
 }

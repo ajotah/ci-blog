@@ -38,7 +38,7 @@
 	<span class="icon is-small">
 	 <i class="far fa-calendar-alt"></i>
 	</span>
-	 <span>12/12/2018</span></span></div>
+	 <span><?=$post['fecha']?></span></span></div>
 </div>
   <div class="level-right">
 		<div class="level-item">
