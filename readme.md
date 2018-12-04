@@ -28,5 +28,12 @@ Screenshot Post y Comentarios
 
 <img src="imagenes_repositorio/captura2.png">
 
+<h1>
+New! Screenshot Admin panel
+</h1>
+
+<img src="imagenes_repositorio/captura3.png">
+
+
 <h1> Bugs e incidencias </h1>
 Para reportar algún bug hazlo desde aquí -><a href="https://github.com/ajotah/ci-blog/issues"> issues</a>
