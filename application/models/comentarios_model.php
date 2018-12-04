@@ -8,7 +8,7 @@ class Comentarios_model extends CI_Model {
 
           $this->db->from('comentarios');
           $this->db->where('articulo', $id);
-          $this->db->order_by('fecha', 'desc');
+          $this->db->order_by('id', 'desc');
           $consulta = $this->db->get();
           $resultado = $consulta->result();
           return $resultado;
