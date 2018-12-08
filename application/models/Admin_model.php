@@ -49,6 +49,31 @@ return $cero;
 
    }
 
+   public function ultimos_comentarios($limit=null) {
+
+    $this->db->select('*');
+    $this->db->from('comentarios');
+    $this->db->order_by('id', 'desc');
+    $this->db->limit($limit);
+    $consulta = $this->db->get();
+    $resultado = $consulta->result();
+    return $resultado;
+    
+
+
+   }
+   
+   public function buscar_usuario($usuario) {
+
+    $this->db->from('usuarios');
+    $this->db->where('usuario', $usuario);
+    $consulta = $this->db->get();
+    $resultado = $consulta->result();
+    
+    return $resultado;
+
+  }
+
 
 
  }
