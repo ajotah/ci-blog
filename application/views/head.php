@@ -11,9 +11,11 @@
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
      <!--   Archivos CSS     -->
 <script defer src="<?php echo base_url('bulma/index.js'); ?>"></script>
+<script defer src="<?php echo base_url('bulma/summernote-ext-emoji-ajax.js'); ?>"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-lite.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-lite.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('bulma/bulma.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('bulma/summernote-ext-emoji-ajax.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('bulma/tagscss/bulma-tagsinput.min.css'); ?>">
 <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
 
@@ -143,6 +145,16 @@ $(document).ready(function() {
  
   $('#summernote').summernote({
     height: ($(window).height() - 300),
+    toolbar: [
+    ['style',['style']],
+    ['style', ['bold', 'italic', 'underline', 'clear']],
+    ['font', ['strikethrough', 'superscript', 'subscript']],
+    ['fontsize', ['fontsize']],
+    ['color', ['color']],
+    ['para', ['ul', 'ol', 'paragraph']],
+    ['codeview', ['codeview']],
+    ['insert',['picture', 'link', 'emoji']]
+  ],
     placeholder: '¿Qué quieres contar?',
     callbacks: {
         onImageUpload: function(image) {
