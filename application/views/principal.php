@@ -40,7 +40,7 @@
 	<div class="buttons has-addons card-footer-item">
 <?     if ($this->session->userdata('logged_in')) {
 	if ($this->session->userdata('rango') == "admin") {?>
-		<a href="#">
+		<a href="<?php echo base_url('index.php/posts/editar/'.$post['id'].''); ?>">
 <span class="button is-small is-light">
 	<span class="icon is-small">
 	 <i class="fas fa-edit"></i>

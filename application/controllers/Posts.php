@@ -36,6 +36,8 @@ class Posts extends CI_Controller {
 
   public function addpost()
   {
+		if ($this->session->userdata('rango') == "admin") {
+
 $data['categorias'] = $this->posts_model->ver_categorias();
 $this->load->view('head');
 $this->load->view('add_post', $data);
@@ -59,7 +61,11 @@ if ($this->input->post()) {
   }
   $this->load->view('foot');
 
+} else {
+	redirect('/', 'refresh');
 
+
+}
 }
 
 public function ver($id=null)
@@ -100,7 +106,8 @@ public function subir_imagen()
 
 
 public function editar($id) {
-	
+	if ($this->session->userdata('rango') == "admin") {
+
 	if ($this->input->post()) {
 
 		$titulo = $this->input->post('titulo');
@@ -121,6 +128,12 @@ public function editar($id) {
 
 	
 		
+
+
+
+}
+	} else {
+    redirect('/', 'refresh');
 
 
 	}
