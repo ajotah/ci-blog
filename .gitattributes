@@ -1,4 +1,3 @@
-.php linguist-language=PHP
-.kicad_pcb linguist-detectable=true
-.sch linguist-detectable=true
-tools/export_bom.py linguist-detectable=false
+bulma/* linguist-vendored
+application/* linguist-vendored
+system/* linguist-vendored
