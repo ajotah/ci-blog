@@ -84,7 +84,7 @@
     <textarea id="summernote" class="summernote" name="contenido" value="<?=$dato['contenido']?>"></textarea>
 </div><br>
 <div class="field">
-    <input class="input" type="tags" name="tags" placeholder="Nuevo tag" value="<?=$dato['tags']?>">
+    <input type="tags" name="tags" placeholder="Nuevo tag" value="<?=$dato['tags']?>">
 </div>
 <br>
 <div class="field">
