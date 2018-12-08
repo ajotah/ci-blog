@@ -18,22 +18,27 @@ $config['base_url'] = 'http://localhost/blog/ci-blog';
 <li> Login y accede al panel de administración </li>
 </ul>
 
-<h1>Screenshot INICIO</h1>
+<h1>Screenshot Index</h1>
 
-<img src="imagenes_repositorio/captura1.png">
+<img src="imagenes_repositorio/1.png">
 
 <h1>
 Screenshot Post y Comentarios
 </h1>
 
-<img src="imagenes_repositorio/captura2.png">
+<img src="imagenes_repositorio/2.png">
 
 <h1>
-New! Screenshot Admin panel
+Screenshot Admin panel
 </h1>
 
-<img src="imagenes_repositorio/captura3.png">
+<img src="imagenes_repositorio/3.png">
 
+<h1>
+New! Screenshot Text editor
+</h1>
+
+<img src="imagenes_repositorio/4.png">
 
 <h1> Bugs e incidencias </h1>
 Para reportar algún bug hazlo desde aquí -><a href="https://github.com/ajotah/ci-blog/issues"> issues</a>
