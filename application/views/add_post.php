@@ -96,7 +96,6 @@
         'id' => 'tags',
         'maxlength' => '255',
         'placeholder' => 'tags',
-        'class' => 'input',
         'type' => 'tags',
       );
       echo form_input($tags);
