@@ -54,5 +54,6 @@ return $resultado;
       $consulta = $this->db->get();
       return $consulta->row();
    }
+   
 
    }

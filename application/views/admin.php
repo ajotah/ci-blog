@@ -95,51 +95,24 @@
                                 <div class="content">
                                     <table class="table is-fullwidth is-striped">
                                         <tbody>
-                                            <tr>
+                                        <?php if (!empty($ultimos_comentarios)) : ?>
+		<?php foreach($ultimos_comentarios as $resucomentarios) : ?>
+    <tr>
                                                 <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                                <td>Lorum ipsum dolem aire</td>
-                                                <td><a class="button is-small is-primary" href="#">Action</a></td>
+                                                <td><?=$resucomentarios->contenido?></td>
+                                                <td><a class="button is-small is-primary" href="<?php echo base_url('index.php/posts/ver/'.$resucomentarios->articulo.''); ?>" target="_blank">Action</a></td>
                                             </tr>
-                                            <tr>
-                                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                                <td>Lorum ipsum dolem aire</td>
-                                                <td><a class="button is-small is-primary" href="#">Action</a></td>
+    <?php endforeach; ?>
+    <?php else : ?>
+    <tr>
+                                                <td width="5%"><i class="fas fa-comment"></i></td>
+                                                <td>No hay comentarios.</td>
+                                                <td></td>
                                             </tr>
-                                            <tr>
-                                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                                <td>Lorum ipsum dolem aire</td>
-                                                <td><a class="button is-small is-primary" href="#">Action</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                                <td>Lorum ipsum dolem aire</td>
-                                                <td><a class="button is-small is-primary" href="#">Action</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                                <td>Lorum ipsum dolem aire</td>
-                                                <td><a class="button is-small is-primary" href="#">Action</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                                <td>Lorum ipsum dolem aire</td>
-                                                <td><a class="button is-small is-primary" href="#">Action</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                                <td>Lorum ipsum dolem aire</td>
-                                                <td><a class="button is-small is-primary" href="#">Action</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                                <td>Lorum ipsum dolem aire</td>
-                                                <td><a class="button is-small is-primary" href="#">Action</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                                <td>Lorum ipsum dolem aire</td>
-                                                <td><a class="button is-small is-primary" href="#">Action</a></td>
-                                            </tr>
+<?php endif; ?>
+
+                                            
+                              
                                         </tbody>
                                     </table>
                                 </div>

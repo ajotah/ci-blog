@@ -1,79 +1,79 @@
-<div class="ui container">
-<div class="ui grid">
+<div class="container">
+<div class="columns">
+  <div class="column is-3">
+    <!-- MENU LATERAL -->
+      <aside class="menu">
+  <p class="menu-label">
+    General
+  </p>
+  <ul class="menu-list">
+    <li><a>Dashboard</a></li>
+    <li><a>Configuración</a></li>
+  </ul>
+  <p class="menu-label">
+    Usuarios
+  </p>
+    <ul class="menu-list">
+      <li><a>Crear usuario</a></li>
+      <li><a>Lista de usuarios</a></li>
+      <li><a>Lista negra</a></li>
+    </ul>
 
-<div class="three wide column">
-<!-- Columna Izquierda -->
+      <p class="menu-label">
+        Blog
+      </p>
+      <ul class="menu-list">
+        <li><a>Crear post</a></li>
+        <li><a>Lista de posts</a></li>
+        <li><a>Categorías</a></li>
+      </ul>
 
-
-
-</div>
-<div class="ten wide column">
-
-  <!-- Centro, donde va la información principal -->
-  <?
-  if($this->session->flashdata('error')) {
-
-    echo '<div class="ui attached warning message">
-  <div class="header">
-¡Error!  </div>
-  <p>';
-  echo $this->session->flashdata('error');
-  echo '</p></div>';
-  }
-
-  ?>
-  <?
-  if($this->session->flashdata('afirmacion')) {
-
-    echo '<div class="ui attached positive message">
-  <div class="header">
-OK!  </div>
-  <p>';
-  echo $this->session->flashdata('afirmacion');
-  echo '</p></div>';
-  }
-
-  ?>
-  <div class="ui attached fluid segment">
-
-
+  </ul>
+  <p class="menu-label">
+    Cuenta
+  </p>
+  <ul class="menu-list">
+    <li><a>Modificar datos</a></li>
+    <li><a>Mi perfil</a></li>
+  </ul>
+</aside>
+  </div>
+  <div class="column is-9">
+    <!-- CONTENIDO CENTRAL -->
 
       <?
         if ($this->session->userdata('logged_in')) {
       $formulario = array(
         'name'      => 'addpost',
         'id'        => 'addpost',
-        'class'     => 'ui form',
+        'class'     => 'form',
 
       );
       echo form_open('posts/addpost', $formulario);
       echo '<div class="field">';
-      echo form_label('Titulo', 'titulo');
       $titulo = array(
             'name'          => 'titulo',
             'id'            => 'titulo',
             'placeholder'         => 'Título del post',
             'maxlength'     => '255',
+            'class' => 'input',
 
     );
       echo form_input($titulo);
       echo '</div>';
-      echo '<div class="field">';
       $contenido = array(
         'name' => 'contenido',
-        'id' => 'contenido',
-        'placeholder' => 'Contenido del post..',
-
+        'id' => 'summernote',
       );
       echo form_textarea($contenido);
-      echo '</div>';
-      echo '<div class="field">';
-      echo form_label('Tags', 'tags');
+  
+      echo '<br><div class="field">';
       $tags = array (
         'name' => 'tags',
         'id' => 'tags',
         'maxlength' => '255',
         'placeholder' => 'tags',
+        'class' => 'input',
       );
       echo form_input($tags);
       echo '</div>';
@@ -81,7 +81,7 @@ OK!  </div>
       $forma_boton = array(
         'name' => 'botonregistrar',
         'value' => 'Enviar',
-        'class' => 'ui button',
+        'class' => 'button is-primary',
         'type' => 'submit',
 
       );
@@ -95,13 +95,11 @@ OK!  </div>
 
         }
       ?>
-  </div>
+            
+                
+             </div>
+            </div>
+          </div>
 
-</div>
-
-<div class="three wide column">
-  <!-- Columna derecha -->
-</div>
-
-</div>
-</div>
+        </div>
+        </div>

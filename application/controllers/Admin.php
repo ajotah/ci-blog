@@ -23,18 +23,27 @@ class Admin extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
+	 
 	public function index()
 	{
+		if ($this->session->userdata('rango') == "admin") {
     $data['cantidad_usuarios'] = $this->Admin_model->contar_usuarios();
     $data['cantidad_posts'] = $this->Admin_model->contar_posts();
-    $data['cantidad_comentarios'] = $this->Admin_model->contar_comentarios();
+	$data['cantidad_comentarios'] = $this->Admin_model->contar_comentarios();
+	$data['ultimos_comentarios'] = $this->Admin_model->ultimos_comentarios(10);
+
 
     $this->load->view('head');
 
     $this->load->view('admin', $data);
 
     $this->load->view('foot');
+		} else {
 
+			redirect('/', 'refresh');
+
+		}
 	}
 
 

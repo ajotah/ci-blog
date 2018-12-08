@@ -11,6 +11,8 @@
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
      <!--   Archivos CSS     -->
 <script defer src="<?php echo base_url('bulma/index.js'); ?>"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-lite.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-lite.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('bulma/bulma.css'); ?>">
 
 <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
@@ -124,5 +126,37 @@ $(document).ready(function() {
       $(".navbar-menu").toggleClass("is-active");
 
   });
+ 
+  $('#summernote').summernote({
+    height: ($(window).height() - 300),
+    placeholder: '¿Qué quieres contar?',
+    callbacks: {
+        onImageUpload: function(image) {
+            uploadImage(image[0]);
+        }
+    }
+});
+
+function uploadImage(image) {
+    var data = new FormData();
+    data.append("image", image);
+    $.ajax({
+        url: '<?php echo base_url('index.php/posts/subir_imagen'); ?>',
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: data,
+        type: "post",
+        success: function(url) {
+            var image = $('<img>').attr('src', 'http://' + url);
+            $('#summernote').summernote("insertNode", image[0]);
+        },
+        error: function(data) {
+            console.log(data);
+        }
+    });
+}
+
+
 });
 </script>

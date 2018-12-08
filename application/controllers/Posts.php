@@ -85,4 +85,26 @@ echo "Posts relacionados";
 
 }
 
+public function subir_imagen()
+{
+
+	
+	$this->load->helper('file');
+	if ($_FILES['image']['name']) {
+		if (!$_FILES['image']['error']) {
+				$name = md5(rand(100, 200));
+				$ext = explode('.', $_FILES['image']['name']);
+				$filename = $name . '.' . $ext[1];
+				$destination = base_url('upload/') . $filename; //change this directory
+				$location = $_FILES["image"]["tmp_name"];
+				move_uploaded_file($location, $destination);
+				echo base_url('upload/') . $filename;//change this URL
+		}
+		else
+		{
+			echo  $message = 'Ooops!  Your upload triggered the following error:  '.$_FILES['file']['error'];
+		}
+}
+}
+
 }
