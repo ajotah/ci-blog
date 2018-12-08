@@ -2,6 +2,8 @@
 <div class="columns">
 
 <div class="column is-8 is-offset-2 is-offset-one-quarter">
+<div style="padding: 5px; z-index:1;">
+
   <!-- Centro, donde va la información principal -->
     <div class="box">
   <?
@@ -96,6 +98,7 @@
       echo form_button($forma_boton, 'Registrarse');
           echo form_close();
       ?>
+      </div>
   </div>
 
 </div>

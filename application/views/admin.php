@@ -39,6 +39,8 @@
 </aside>
   </div>
   <div class="column is-9">
+  <div style="padding: 5px; z-index:1;">
+
     <!-- CONTENIDO CENTRAL -->
 <section class="hero is-primary is-bold is-small">
                     <div class="hero-body">
@@ -151,6 +153,7 @@
               </div>
               </div>
               </div>
+</div>
             </div>
           </div>
 

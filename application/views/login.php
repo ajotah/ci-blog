@@ -3,6 +3,8 @@
 
 <!-- Columna Izquierda -->
 <div class="column is-8 is-offset-2 is-offset-one-quarter">
+<div style="padding: 5px; z-index:1;">
+
   <div class="box">
   <!-- Centro, donde va la información principal -->
   <?
@@ -95,7 +97,7 @@ echo '<a class="button is-danger" href="'.base_url("index.php/usuarios/registrar
 </div></div>';
       ?>
 
-
+</div>
 </div>
 
 

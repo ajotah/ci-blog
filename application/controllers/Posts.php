@@ -35,7 +35,6 @@ class Posts extends CI_Controller {
 	}
 
   public function addpost()
-
   {
 $data['categorias'] = $this->posts_model->ver_categorias();
 $this->load->view('head');

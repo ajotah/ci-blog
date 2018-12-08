@@ -39,6 +39,8 @@
 </aside>
   </div>
   <div class="column is-9">
+  <div style="padding: 5px; z-index:1;">
+
     <!-- CONTENIDO CENTRAL -->
 
       <?
@@ -118,7 +120,7 @@
         }
       ?>
             
-                
+      </div>
              </div>
             </div>
           </div>
