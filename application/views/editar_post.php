@@ -7,7 +7,7 @@
     General
   </p>
   <ul class="menu-list">
-    <li><a>Dashboard</a></li>
+    <li><a href="<?php echo base_url('index.php/admin'); ?>">Dashboard</a></li>
     <li><a>Configuración</a></li>
   </ul>
   <p class="menu-label">
