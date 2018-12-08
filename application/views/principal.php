@@ -49,14 +49,6 @@
 </span>
 </a>
 <? }} ?>
-<a href="#">
-<span class="button is-small is-light">
-<span class="icon is-small">
-<i class="fas fa-comments"></i>
-</span>
-<span>Comentarios</span>
-</span>
-</a>
 <a href="<?php echo base_url('index.php/posts/ver/'.$post['id'].''); ?>">
 <span class="button is-small is-light">
 <span class="icon is-small">
