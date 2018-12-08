@@ -65,4 +65,14 @@ return $resultado;
 
 }
 
+public function editar($id,$titulo,$contenido,$tags) {
+   $data = array(
+      'titulo' => $titulo,
+      'contenido'  => $contenido,
+      'tags'  => $tags,
+);
+$this->db->where('id', $id);
+$this->db->set($data);
+$this->db->update('posts');}
+
    }

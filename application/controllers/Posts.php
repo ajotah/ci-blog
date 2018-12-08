@@ -99,4 +99,32 @@ public function subir_imagen()
 }
 
 
+public function editar($id) {
+	
+	if ($this->input->post()) {
+
+		$titulo = $this->input->post('titulo');
+		$contenido = $this->input->post('contenido');
+		$tags = $this->input->post('tags');
+		$categoria = $this->input->post('categoria');
+		$editar = $this->posts_model->editar($id,$titulo,$contenido,$tags);
+	
+		$this->session->set_flashdata('afirmacion', 'El post ha sido modificado correctamente.');
+    redirect('posts/editar/'.$id.'', 'refresh');
+	} else {
+
+
+	$data['datos'] = $this->posts_model->ver($id);
+	$this->load->view('head');
+	$this->load->view('editar_post', $data);
+	$this->load->view('foot');
+
+	
+		
+
+
+	}
+}
+
+
 }

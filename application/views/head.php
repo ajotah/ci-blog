@@ -143,46 +143,7 @@ $(document).ready(function() {
 
   });
  
-  $('#summernote').summernote({
-    height: ($(window).height() - 300),
-    toolbar: [
-    ['style',['style']],
-    ['style', ['bold', 'italic', 'underline', 'clear']],
-    ['font', ['strikethrough', 'superscript', 'subscript']],
-    ['fontsize', ['fontsize']],
-    ['color', ['color']],
-    ['para', ['ul', 'ol', 'paragraph']],
-    ['codeview', ['codeview']],
-    ['insert',['picture', 'link', 'emoji']]
-  ],
-    placeholder: '¿Qué quieres contar?',
-    callbacks: {
-        onImageUpload: function(image) {
-            uploadImage(image[0]);
-        }
-    }
-});
-
-function uploadImage(image) {
-    var data = new FormData();
-    data.append("image", image);
-    $.ajax({
-        url: '<?php echo base_url('index.php/posts/subir_imagen'); ?>',
-        cache: false,
-        contentType: false,
-        processData: false,
-        data: data,
-        type: "post",
-        success: function(url) {
-            var image = $('<img>').attr('src', '' + url);
-            $('#summernote').summernote("insertNode", image[0]);
-        },
-        error: function(data) {
-            console.log(data);
-        }
-    });
-}
-
+  
 
 });
 </script>

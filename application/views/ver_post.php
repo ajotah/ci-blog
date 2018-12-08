@@ -26,7 +26,7 @@
 <article>
 <h2><?=$post['titulo']?></h2>
 
-		<p><?=substr($post['contenido'],0, 300)?>...</p>
+		<p><?=$post['contenido']?>...</p>
 </article>
 	</div>
 </div>

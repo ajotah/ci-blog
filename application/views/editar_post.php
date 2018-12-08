@@ -40,41 +40,38 @@
   </div>
   <div class="column is-9">
   <div style="padding: 5px; z-index:1;">
+  <?
+  if($this->session->flashdata('error')) {
 
+    echo '<div class="notification is-danger">
+  <button class="delete"></button>
+';
+  echo $this->session->flashdata('error');
+  echo '</div>';
+}
+  ?>
+  <?
+  if($this->session->flashdata('afirmacion')) {
+
+    echo '<div class="notification is-success">
+  <button class="delete"></button>
+  ';
+  echo $this->session->flashdata('afirmacion');
+  echo '</div>';
+  }
+
+  ?>
     <!-- CONTENIDO CENTRAL -->
-
-      <?
-        if ($this->session->userdata('logged_in')) {
-      $formulario = array(
-        'name'      => 'addpost',
-        'id'        => 'addpost',
-        'class'     => 'form',
-
-      );
-      echo form_open('posts/addpost', $formulario);
-      echo '<div class="field">';
-      $titulo = array(
-            'name'          => 'titulo',
-            'id'            => 'titulo',
-            'placeholder'         => 'Título del post',
-            'maxlength'     => '255',
-            'class' => 'input',
-
-    );
-      echo form_input($titulo);
-      echo '</div>'; ?>
+    <?php foreach($datos as $dato) : ?>
+      <form action="<?php echo base_url('index.php/posts/editar/'.$dato['id'].''); ?>" class="form" method="post">
       <div class="field">
+<input class="input" name="titulo" value="<?=$dato['titulo']?>">
+</div>
+<div class="field">
   <div class="control has-icons-left">
     <div class="select">
       <select name="categoria">
-<?php if (!empty($categorias)) : ?>
-		<?php foreach($categorias as $cate) : ?>
-
-        <option value="<?=$cate->id?>"><?=$cate->nombre?></option>
-        <?php endforeach; ?>
-    <?php else : ?>
-    <option value="0">Sin categorias</option>
-    <?php endif; ?>
+      <option value="<?=$dato['categoria']?>">No modificable</option>
       </select>
     </div>
     <div class="icon is-small is-left">
@@ -83,53 +80,22 @@
   </div>
 </div>
 
-      <?
-      $contenido = array(
-        'name' => 'contenido',
-        'id' => 'summernote',
-      );
-      echo form_textarea($contenido);
-  
-      echo '<br><div class="field">';
-      $tags = array (
-        'name' => 'tags',
-        'id' => 'tags',
-        'maxlength' => '255',
-        'placeholder' => 'tags',
-        'class' => 'input',
-        'type' => 'tags',
-      );
-      echo form_input($tags);
-      echo '</div><br>';
-
-      $forma_boton = array(
-        'name' => 'botonregistrar',
-        'value' => 'Enviar',
-        'class' => 'button is-primary',
-        'type' => 'submit',
-
-      );
-      echo form_button($forma_boton, 'Enviar');
-          echo form_close();
-
-        } else {
-          
-          redirect('usuarios/login', 'refresh');
-
-
-        }
-      ?>
-            
-      </div>
-             </div>
-            </div>
-          </div>
-
-        </div>
-        </div>
-<script>
-  $('#summernote').summernote({
+<div class="filed">
+    <textarea id="summernote" class="summernote" name="contenido" value="<?=$dato['contenido']?>"></textarea>
+</div><br>
+<div class="field">
+    <input class="input" type="tags" name="tags" placeholder="Nuevo tag" value="<?=$dato['tags']?>">
+</div>
+<br>
+<div class="field">
+<button type="submit" class="button is-primary">Guardar</button>
+</div>
+      </form>
+     <script>
+         
+         $('#summernote').summernote({
     height: ($(window).height() - 300),
+    code: '<b>Hola</b>',
     toolbar: [
     ['style',['style']],
     ['style', ['bold', 'italic', 'underline', 'clear']],
@@ -140,13 +106,13 @@
     ['codeview', ['codeview']],
     ['insert',['picture', 'link', 'emoji']]
   ],
-    placeholder: '¿Qué quieres contar?',
     callbacks: {
         onImageUpload: function(image) {
             uploadImage(image[0]);
         }
     }
 });
+$('.summernote').summernote('code', '<?=$dato['contenido']?>');
 
 function uploadImage(image) {
     var data = new FormData();
@@ -168,4 +134,14 @@ function uploadImage(image) {
     });
 }
 
-  </script>
+
+         </script>
+      <?php endforeach; ?>    
+      </div>
+             </div>
+            </div>
+          </div>
+
+        </div>
+        </div>
+
