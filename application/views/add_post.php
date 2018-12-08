@@ -23,7 +23,7 @@
         Blog
       </p>
       <ul class="menu-list">
-        <li><a>Crear post</a></li>
+        <li><a href="<?php echo base_url('index.php/posts/addpost'); ?>">Crear post</a></li>
         <li><a>Lista de posts</a></li>
         <li><a>Categorías</a></li>
       </ul>
@@ -60,7 +60,28 @@
 
     );
       echo form_input($titulo);
-      echo '</div>';
+      echo '</div>'; ?>
+      <div class="field">
+  <div class="control has-icons-left">
+    <div class="select">
+      <select name="categoria">
+<?php if (!empty($categorias)) : ?>
+		<?php foreach($categorias as $cate) : ?>
+
+        <option value="<?=$cate->id?>"><?=$cate->nombre?></option>
+        <?php endforeach; ?>
+    <?php else : ?>
+    <option value="0">Sin categorias</option>
+    <?php endif; ?>
+      </select>
+    </div>
+    <div class="icon is-small is-left">
+    <i class="fas fa-caret-square-right"></i>   
+     </div>
+  </div>
+</div>
+
+      <?
       $contenido = array(
         'name' => 'contenido',
         'id' => 'summernote',
@@ -74,9 +95,10 @@
         'maxlength' => '255',
         'placeholder' => 'tags',
         'class' => 'input',
+        'type' => 'tags',
       );
       echo form_input($tags);
-      echo '</div>';
+      echo '</div><br>';
 
       $forma_boton = array(
         'name' => 'botonregistrar',

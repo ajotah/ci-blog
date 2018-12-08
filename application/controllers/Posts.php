@@ -37,9 +37,9 @@ class Posts extends CI_Controller {
   public function addpost()
 
   {
-
+$data['categorias'] = $this->posts_model->ver_categorias();
 $this->load->view('head');
-$this->load->view('add_post');
+$this->load->view('add_post', $data);
 if ($this->input->post()) {
   $titulo = $this->input->post('titulo');
   $contenido = $this->input->post('contenido');
@@ -90,21 +90,14 @@ public function subir_imagen()
 
 	
 	$this->load->helper('file');
-	if ($_FILES['image']['name']) {
-		if (!$_FILES['image']['error']) {
-				$name = md5(rand(100, 200));
-				$ext = explode('.', $_FILES['image']['name']);
-				$filename = $name . '.' . $ext[1];
-				$destination = base_url('upload/') . $filename; //change this directory
-				$location = $_FILES["image"]["tmp_name"];
-				move_uploaded_file($location, $destination);
-				echo base_url('upload/') . $filename;//change this URL
-		}
-		else
-		{
-			echo  $message = 'Ooops!  Your upload triggered the following error:  '.$_FILES['file']['error'];
-		}
+	$dir_name = "upload/";
+	$tiempo = time();
+	$completo = $dir_name.$tiempo.$_FILES['image']['name'];
+		move_uploaded_file($_FILES['image']['tmp_name'],$completo);
+		$url2 =base_url();
+    echo $url2.$dir_name.$tiempo.$_FILES['image']['name'];
+
 }
-}
+
 
 }

@@ -1,4 +1,8 @@
 
+<script type="text/javascript" src="https://wikiki.github.io/node_modules/bulma-extensions/bulma-tagsinput/dist/js/bulma-tagsinput.js"></script>
+<script>
+  bulmaTagsinput.attach();
+</script>
 <br>
 <footer class="footer">
   <div class="content has-text-centered">

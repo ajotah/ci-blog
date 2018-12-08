@@ -55,5 +55,14 @@ return $resultado;
       return $consulta->row();
    }
    
+public function ver_categorias() {
+
+   $this->db->from('categorias');
+   $this->db->order_by('id');
+$consulta = $this->db->get();
+$resultado = $consulta->result_array();
+return $resultado;
+
+}
 
    }

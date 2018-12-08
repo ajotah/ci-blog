@@ -7,7 +7,7 @@
     General
   </p>
   <ul class="menu-list">
-    <li><a>Dashboard</a></li>
+    <li><a href="<?php echo base_url('index.php/admin'); ?>">Dashboard</a></li>
     <li><a>Configuración</a></li>
   </ul>
   <p class="menu-label">
@@ -23,7 +23,7 @@
         Blog
       </p>
       <ul class="menu-list">
-        <li><a>Crear post</a></li>
+        <li><a href="<?php echo base_url('index.php/posts/addpost'); ?>">Crear post</a></li>
         <li><a>Lista de posts</a></li>
         <li><a>Categorías</a></li>
       </ul>
@@ -98,9 +98,9 @@
                                         <?php if (!empty($ultimos_comentarios)) : ?>
 		<?php foreach($ultimos_comentarios as $resucomentarios) : ?>
     <tr>
-                                                <td width="5%"><i class="fa fa-bell-o"></i></td>
+                                                <td width="5%"><i class="fa fa-comment"></i></td>
                                                 <td><?=$resucomentarios->contenido?></td>
-                                                <td><a class="button is-small is-primary" href="<?php echo base_url('index.php/posts/ver/'.$resucomentarios->articulo.''); ?>" target="_blank">Action</a></td>
+                                                <td><a class="button is-small is-primary" href="<?php echo base_url('index.php/posts/ver/'.$resucomentarios->articulo.''); ?>" target="_blank">Ver</a></td>
                                             </tr>
     <?php endforeach; ?>
     <?php else : ?>

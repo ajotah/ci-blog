@@ -6,7 +6,7 @@ class Admin extends CI_Controller {
        parent::__construct();
        $this->load->model('posts_model');
        $this->load->model('usuario_model');
-       $this->load->model('Admin_model');
+       $this->load->model('admin_model');
     }
 	/**
 	 * Index Page for this controller.
@@ -28,10 +28,10 @@ class Admin extends CI_Controller {
 	public function index()
 	{
 		if ($this->session->userdata('rango') == "admin") {
-    $data['cantidad_usuarios'] = $this->Admin_model->contar_usuarios();
-    $data['cantidad_posts'] = $this->Admin_model->contar_posts();
-	$data['cantidad_comentarios'] = $this->Admin_model->contar_comentarios();
-	$data['ultimos_comentarios'] = $this->Admin_model->ultimos_comentarios(10);
+    $data['cantidad_usuarios'] = $this->admin_model->contar_usuarios();
+    $data['cantidad_posts'] = $this->admin_model->contar_posts();
+	$data['cantidad_comentarios'] = $this->admin_model->contar_comentarios();
+	$data['ultimos_comentarios'] = $this->admin_model->ultimos_comentarios(10);
 
 
     $this->load->view('head');

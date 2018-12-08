@@ -14,7 +14,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-lite.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-lite.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('bulma/bulma.css'); ?>">
-
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('bulma/tagscss/bulma-tagsinput.min.css'); ?>">
 <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
 
 
@@ -71,7 +71,7 @@ html {}
               <div class="navbar-item">
                 <div class="field is-grouped">
                   <?     if ($this->session->userdata('logged_in')) {
-                    if ($this->session->userdata('rango') == "admin") { ?>
+                    ?>
                       <p class="control">
                       <a class="button" href="<?php echo base_url('index.php/usuarios/logout'); ?>">
                         <span class="icon">
@@ -82,7 +82,20 @@ html {}
                         </span>
                       </a>
                       </p>
-                <? } } else { ?>
+
+                      <?if ($this->session->userdata('rango') == "admin") { ?>
+              
+              <p class="control">
+              <a class="button" href="<?php echo base_url('index.php/admin'); ?>">
+                <span class="icon">
+                  <i class="fas fa-cog"></i>
+                </span>
+                <span>
+                  Panel
+                </span>
+              </a>
+            </p> <? } ?>
+                <? } else {?>
                   <p class="control">
                 <a class="button" href="<?php echo base_url('index.php/usuarios'); ?>">
                   <span class="icon">
@@ -93,7 +106,8 @@ html {}
                   </span>
                 </a>
               </p>
-              <?  } ?>
+              <? } ?>
+                  
                   <p class="control">
                     <a class="button is-primary" href="https://github.com/ajotah?tab=repositories" target="_blank">
                       <span class="icon">
@@ -148,7 +162,7 @@ function uploadImage(image) {
         data: data,
         type: "post",
         success: function(url) {
-            var image = $('<img>').attr('src', 'http://' + url);
+            var image = $('<img>').attr('src', '' + url);
             $('#summernote').summernote("insertNode", image[0]);
         },
         error: function(data) {
@@ -160,3 +174,5 @@ function uploadImage(image) {
 
 });
 </script>
+
+
