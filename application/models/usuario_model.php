@@ -76,6 +76,12 @@ public function obtenerdatos($id){
 
 public function actualizar_avatar($url,$id) {
 
+  $this->db->where('id', $id);
+   $quitar = $this->db->get('usuarios')->row();
+   $final = $quitar->avatar; 
+
+unlink($final); 
+
   $data = array(
     'avatar' => $url,
 );
