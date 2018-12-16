@@ -2,7 +2,7 @@
 <div class="columns">
   <div class="column is-3">
     <!-- MENU LATERAL -->
-      <aside class="menu">
+    <aside class="menu">
   <p class="menu-label">
     General
   </p>
@@ -25,16 +25,15 @@
       <ul class="menu-list">
         <li><a href="<?php echo base_url('index.php/posts/addpost'); ?>">Crear post</a></li>
         <li><a>Lista de posts</a></li>
-        <li><a>Categorías</a></li>
+        <li><a href="<?php echo base_url('index.php/posts/crear_categoria'); ?>">Categorías</a></li>
       </ul>
 
   </ul>
   <p class="menu-label">
-    Cuenta
+    Perfil
   </p>
   <ul class="menu-list">
-    <li><a>Modificar datos</a></li>
-    <li><a>Mi perfil</a></li>
+    <li><a href="<?php echo base_url('index.php/usuarios/perfil'); ?>">Modificar datos</a></li>
   </ul>
 </aside>
   </div>

@@ -48,6 +48,14 @@
 	 <span>Editar</span>
 </span>
 </a>
+<a href="<?php echo base_url('index.php/posts/borrar/'.$post['id'].''); ?>">
+<span class="button is-small is-light">
+	<span class="icon is-small">
+	 <i class="fas fa-edit"></i>
+ </span>
+	 <span>Borrar</span>
+</span>
+</a>
 <? }} ?>
 <a href="<?php echo base_url('index.php/posts/ver/'.$post['id'].''); ?>">
 <span class="button is-small is-light">
@@ -62,6 +70,7 @@
 </div>
 </div>
 </div>
+	</nav>
 <br>
 <?php endforeach; ?>
 
@@ -70,8 +79,10 @@
 <?php echo $this->paginator->get_links('posts', 'bulma'); ?>
 
 <?php else : ?>
-NO HAY POSTS
-<?php endif; ?>
+<div class="notification is-primary">
+  No hay posts aun... <i class="em em-anguished"></i>
+	</div> 
+  <?php endif; ?>
 </div>
 </div>
 </div>

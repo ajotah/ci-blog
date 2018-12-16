@@ -26,6 +26,7 @@ if($contar >= 1) {
   'usuario' => $usuario,
   'password' => $password,
   'email' => $email,
+  'rango' => $rango,
 
   );
 
@@ -73,5 +74,28 @@ public function obtenerdatos($id){
   return $resultado;
 }
 
+public function actualizar_avatar($url,$id) {
+
+  $data = array(
+    'avatar' => $url,
+);
+$this->db->where('id', $id);
+$this->db->set($data);
+$this->db->update('usuarios');
+}
+
+public function editar_perfil($id,$descripcion,$email,$twitter,$web) {
+  $data = array(
+    'descripcion' => $descripcion,
+    'email' => $email,
+    'twitter' => $twitter,
+    'web' => $web,
+);
+
+$this->db->where('id', $id);
+$this->db->set($data);
+$this->db->update('usuarios');
+
+}
 
    }

@@ -75,14 +75,22 @@ if($id){
 
 $data['contenido'] = $this->posts_model->ver($id);
 $comprobacion = $this->posts_model->autor($id);
-$data['usuario'] = $this->usuario_model->obtenerdatos($comprobacion->autor);
+if($comprobacion){
+	$data['usuario'] = $this->usuario_model->obtenerdatos($comprobacion->autor);
 
-$this->load->view('ver_post', $data);
-$this->load->view('formu_comentarios', $data);
-$this->load->model('comentarios_model');
-$data2['comentarios'] = $this->comentarios_model->ver_comentarios($id);
-$this->load->view('ver_comentarios', $data2);
-$this->load->view('foot');
+	$this->load->view('ver_post', $data);
+	$this->load->view('formu_comentarios', $data);
+	$this->load->model('comentarios_model');
+	$data2['comentarios'] = $this->comentarios_model->ver_comentarios($id);
+	$this->load->view('ver_comentarios', $data2);
+	$this->load->view('foot');
+} else {
+
+	redirect('/', 'refresh');
+
+
+}
+
 } else {
 
 echo "Posts relacionados";
@@ -137,6 +145,71 @@ public function editar($id) {
 
 
 	}
+}
+
+public function borrar($id) {
+	if ($this->session->userdata('rango') == "admin") {
+
+		$insertar = $this->posts_model->borrar($id);
+
+		if($insertar) {
+
+			redirect('posts/', 'refresh');
+		
+		  } else {
+		
+		  }
+
+
+	} else {
+		redirect('/', 'refresh');
+	
+	
+		}
+}
+
+public function crear_categoria() {
+	if ($this->session->userdata('rango') == "admin") {
+
+$this->load->view('head');
+if ($this->input->post()) {
+
+	$nombre = $this->input->post('nombre');
+	$descripcion = $this->input->post('descripcion');
+
+	$this->form_validation->set_rules('nombre', 'nombre', 'required');
+	$this->form_validation->set_rules('descripcion', 'descripcion', 'required');
+
+	if($this->form_validation->run() == FALSE)
+      			{
+              $this->session->set_flashdata('error', '¡No puedes dejar ningún campo en blanco!');
+              redirect('posts/crear_categoria', 'refresh');
+            } else {
+
+
+	$categoria = $this->posts_model->crear_categoria($nombre,$descripcion);
+	$this->session->set_flashdata('afirmacion', 'La categoría se creo correctamente.');
+	redirect('posts/crear_categoria', 'refresh');
+	
+			}
+
+
+
+} else {
+	$data['categorias'] = $this->posts_model->ver_categorias();
+	$this->load->view('crear_categorias', $data);
+
+
+}
+
+$this->load->view('foot');
+
+} else {
+	redirect('/', 'refresh');
+
+
+	}
+
 }
 
 

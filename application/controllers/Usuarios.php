@@ -54,7 +54,8 @@ echo 'Esta ok, esto es panel administracion.';
       $usuario = $this->input->post('usuario');
       $password = md5($this->input->post('password'));
       $email = $this->input->post('email');
-      $insertar = $this->usuario_model->registrar($usuario,$password,$email);
+      $rango = 'publico';        
+      $insertar = $this->usuario_model->registrar($usuario,$password,$email,$rango);
 }
 
 
@@ -124,6 +125,77 @@ public function logout()
   redirect('/', 'refresh');
 
 
+}
+
+public function perfil(){
+
+$this->load->view('head');
+$this->load->view('perfil');
+$this->load->view('foot');
+
+}
+
+public function actualizar_avatar() {
+  if($this->session->userdata('logged_in')) {
+      $config['upload_path'] = './upload/avatars';
+      $config['allowed_types'] = 'jpg|png';
+      $config['overwrite'] = TRUE; 
+      $config['encrypt_name'] = TRUE;
+      $config['max_size'] = '200'; 
+
+      $this->upload->initialize($config);
+      if ( ! $this->upload->do_upload('userfile'))
+      {
+          $error = $this->upload->display_errors(); 
+
+          $this->session->set_flashdata('error', $error);
+
+          redirect('/usuarios/perfil');
+      }
+      else
+      {                
+          $config['image_library'] = 'gd2';
+          $config['source_image'] = $this->upload->upload_path.$this->upload->file_name;
+          $config['create_thumb'] = FALSE;
+          $config['maintain_ratio'] = FALSE;
+          $config['width'] = 60;
+          $config['height'] = 60;
+
+          $this->load->library('image_lib', $config); 
+
+          $this->image_lib->resize();
+
+          $url = 'upload/avatars/' . $this->upload->file_name;
+          $id = $this->session->userdata('id');
+          $this->usuario_model->actualizar_avatar($url, $id);
+
+          $this->session->set_flashdata('afirmacion', '¡Avatar actualizado!');
+
+          redirect('/usuarios/perfil');
+      }
+  
+    }
+} 
+
+public function actualizar_perfil() {
+ if($this->session->userdata('logged_in')) {
+  if ($this->input->post()) {
+
+		$descripcion = $this->input->post('descripcion');
+		$email = $this->input->post('email');
+		$twitter = $this->input->post('twitter');
+    $web = $this->input->post('web');
+    $id = $this->session->userdata('id');
+		$editar = $this->usuario_model->editar_perfil($id,$descripcion,$email,$twitter,$web);
+	
+		$this->session->set_flashdata('afirmacion', 'Los datos del perfil han sido actualizados correctamente.');
+    redirect('usuarios/perfil/', 'refresh');
+  } else {
+
+    redirect('usuarios/perfil', 'refresh');
+
+  }
+ }
 }
 
 

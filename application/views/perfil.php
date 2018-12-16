@@ -2,7 +2,7 @@
 <div class="columns">
   <div class="column is-3">
     <!-- MENU LATERAL -->
-      <aside class="menu">
+    <aside class="menu">
   <p class="menu-label">
     General
   </p>
@@ -42,63 +42,111 @@
 
     <!-- CONTENIDO CENTRAL -->
 
-      <?
-        if ($this->session->userdata('logged_in')) {
+  <?
+  if($this->session->flashdata('error')) {
+
+    echo '<div class="notification is-danger">
+  <button class="delete"></button>
+';
+  echo $this->session->flashdata('error');
+  echo '</div>';
+}
+  ?>
+  <?
+  if($this->session->flashdata('afirmacion')) {
+
+    echo '<div class="notification is-success">
+  <button class="delete"></button>
+  ';
+  echo $this->session->flashdata('afirmacion');
+  echo '</div>';
+  }
+
+  ?>
+  <div class="box">
+      <h3 class="title is-3">AVATAR</h3>
+<?php echo form_open_multipart('usuarios/actualizar_avatar');?>
+<div class="field">
+
+     <div class="control">
+<input type="file" name="userfile" size="20" />
+</div>
+</div>
+
+
+<input type="submit" value="Actualizar" />
+
+</form>
+</div>
+<div class="box">
+<?
       $formulario = array(
-        'name'      => 'addpost',
-        'id'        => 'addpost',
+        'name'      => 'actualizar_perfil',
+        'id'        => 'actualizar_perfil',
         'class'     => 'form',
 
       );
-      echo form_open('posts/addpost', $formulario);
+      echo form_open('usuarios/actualizar_perfil', $formulario);
+
       echo '<div class="field">';
-      $titulo = array(
-            'name'          => 'titulo',
-            'id'            => 'titulo',
-            'placeholder'         => 'Título del post',
-            'maxlength'     => '255',
+
+      echo '<div class="control">';
+      $descripcion = array(
+            'name'          => 'descripcion',
+            'id'            => 'descripcion',
+            'placeholder'         => 'Descripción de la categoria...',
+            'maxlength'     => '300',
+            'class' => 'textarea',
+
+    );
+      echo form_textarea($descripcion);
+      echo '</div>';
+      echo '</div>';
+
+      echo '<div class="field">';
+
+      echo '<div class="control">';
+      $email = array(
+            'name'          => 'email',
+            'id'            => 'email',
+            'placeholder'         => 'Email',
+            'maxlength'     => '50',
             'class' => 'input',
 
     );
-      echo form_input($titulo);
-      echo '</div>'; ?>
-      <div class="field">
-  <div class="control has-icons-left">
-    <div class="select">
-      <select name="categoria">
-<?php if (!empty($categorias)) : ?>
-		<?php foreach($categorias as $cate) : ?>
+      echo form_input($email);
+      echo '</div>';
+      echo '</div>';
 
-        <option value="<?=$cate['id']?>"><?=$cate['nombre']?></option>
-        <?php endforeach; ?>
-    <?php else : ?>
-    <option value="0">Sin categorias</option>
-    <?php endif; ?>
-      </select>
-    </div>
-    <div class="icon is-small is-left">
-    <i class="fas fa-caret-square-right"></i>   
-     </div>
-  </div>
-</div>
+      echo '<div class="field">';
 
-      <?
-      $contenido = array(
-        'name' => 'contenido',
-        'id' => 'summernote',
-      );
-      echo form_textarea($contenido);
-  
-      echo '<br><div class="field">';
-      $tags = array (
-        'name' => 'tags',
-        'id' => 'tags',
-        'maxlength' => '255',
-        'placeholder' => 'tags',
-        'type' => 'tags',
-      );
-      echo form_input($tags);
-      echo '</div><br>';
+      echo '<div class="control">';
+      $twitter = array(
+            'name'          => 'twitter',
+            'id'            => 'twitter',
+            'placeholder'         => '@TuTwitter',
+            'maxlength'     => '100',
+            'class' => 'input',
+
+    );
+      echo form_input($twitter);
+      echo '</div>';
+      echo '</div>';
+
+      echo '<div class="field">';
+
+      echo '<div class="control">';
+      $web = array(
+            'name'          => 'web',
+            'id'            => 'web',
+            'placeholder'         => 'https://...',
+            'maxlength'     => '100',
+            'class' => 'input',
+
+    );
+      echo form_input($web);
+      echo '</div>';
+      echo '</div>';
 
       $forma_boton = array(
         'name' => 'botonregistrar',
@@ -107,18 +155,13 @@
         'type' => 'submit',
 
       );
-      echo form_button($forma_boton, 'Enviar');
+      echo form_button($forma_boton, 'Actualizar datos');
           echo form_close();
-
-        } else {
-          
-          redirect('usuarios/login', 'refresh');
-
-
-        }
       ?>
-            
-      </div>
+</div>
+
+
+      
              </div>
             </div>
           </div>

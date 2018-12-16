@@ -62,10 +62,6 @@ html {}
               <a class="navbar-item" href="<?php echo base_url('index.php/'); ?>">
                 Inicio
               </a>
-              <a class="navbar-item" href="https://bulma.io/">
-                Proyectos
-              </a>
-
               </div>
             </div>
 
@@ -84,7 +80,17 @@ html {}
                         </span>
                       </a>
                       </p>
-
+              
+              <p class="control">
+              <a class="button" href="<?php echo base_url('index.php/usuarios/perfil'); ?>">
+                <span class="icon">
+                  <i class="fas fa-user"></i>
+                </span>
+                <span>
+                  Perfil
+                </span>
+              </a>
+            </p> 
                       <?if ($this->session->userdata('rango') == "admin") { ?>
               
               <p class="control">

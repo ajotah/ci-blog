@@ -19,6 +19,7 @@ class Posts_model extends CI_Model {
 $tituloseo = preg_replace('/[^A-Za-z0-9-]+/', '-', $titulo);
 $fecha = now();
 $fechahumana = unix_to_human($fecha);
+$autor = $this->session->userdata('id');
 $datosregistro = array(
 
      'titulo' => $titulo,
@@ -26,6 +27,7 @@ $datosregistro = array(
      'fecha' => $fechahumana,
      'contenido' => $contenido,
      'tags' => $tags,
+     'autor' => $autor,
 
    );
 
@@ -73,6 +75,26 @@ public function editar($id,$titulo,$contenido,$tags) {
 );
 $this->db->where('id', $id);
 $this->db->set($data);
-$this->db->update('posts');}
+$this->db->update('posts');
+}
+
+public function borrar($id) {
+
+   $this->db->where('id', $id);
+   $this->db->delete('posts');
+   return true;
+}
+public function crear_categoria($nombre,$descripcion) {
+
+   $datosregistro = array(
+
+      'nombre' => $nombre,
+      'descripcion' => $descripcion,
+    );
+
+    $query = $this->db->insert('categorias', $datosregistro);
+    return $query;
+ 
+}
 
    }

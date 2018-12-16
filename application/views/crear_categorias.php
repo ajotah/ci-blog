@@ -2,7 +2,7 @@
 <div class="columns">
   <div class="column is-3">
     <!-- MENU LATERAL -->
-      <aside class="menu">
+    <aside class="menu">
   <p class="menu-label">
     General
   </p>
@@ -42,63 +42,68 @@
 
     <!-- CONTENIDO CENTRAL -->
 
+  <?
+  if($this->session->flashdata('error')) {
+
+    echo '<div class="notification is-danger">
+  <button class="delete"></button>
+';
+  echo $this->session->flashdata('error');
+  echo '</div>';
+}
+  ?>
+  <?
+  if($this->session->flashdata('afirmacion')) {
+
+    echo '<div class="notification is-success">
+  <button class="delete"></button>
+  ';
+  echo $this->session->flashdata('afirmacion');
+  echo '</div>';
+  }
+
+  ?>
+
+
+
+
       <?
-        if ($this->session->userdata('logged_in')) {
       $formulario = array(
-        'name'      => 'addpost',
-        'id'        => 'addpost',
+        'name'      => 'crear_categoria',
+        'id'        => 'crear_categoria',
         'class'     => 'form',
 
       );
-      echo form_open('posts/addpost', $formulario);
+      echo form_open('posts/crear_categoria', $formulario);
       echo '<div class="field">';
-      $titulo = array(
-            'name'          => 'titulo',
-            'id'            => 'titulo',
-            'placeholder'         => 'Título del post',
-            'maxlength'     => '255',
+
+      echo '<div class="control">';
+      $usuario = array(
+            'name'          => 'nombre',
+            'id'            => 'nombre',
+            'placeholder'         => 'Nombre categoría',
+            'maxlength'     => '50',
             'class' => 'input',
 
     );
-      echo form_input($titulo);
-      echo '</div>'; ?>
-      <div class="field">
-  <div class="control has-icons-left">
-    <div class="select">
-      <select name="categoria">
-<?php if (!empty($categorias)) : ?>
-		<?php foreach($categorias as $cate) : ?>
+      echo form_input($usuario);
+      echo '</div>';
+      echo '</div>';
 
-        <option value="<?=$cate['id']?>"><?=$cate['nombre']?></option>
-        <?php endforeach; ?>
-    <?php else : ?>
-    <option value="0">Sin categorias</option>
-    <?php endif; ?>
-      </select>
-    </div>
-    <div class="icon is-small is-left">
-    <i class="fas fa-caret-square-right"></i>   
-     </div>
-  </div>
-</div>
+      echo '<div class="field">';
 
-      <?
-      $contenido = array(
-        'name' => 'contenido',
-        'id' => 'summernote',
-      );
-      echo form_textarea($contenido);
-  
-      echo '<br><div class="field">';
-      $tags = array (
-        'name' => 'tags',
-        'id' => 'tags',
-        'maxlength' => '255',
-        'placeholder' => 'tags',
-        'type' => 'tags',
-      );
-      echo form_input($tags);
-      echo '</div><br>';
+      echo '<div class="control">';
+      $descripcion = array(
+            'name'          => 'descripcion',
+            'id'            => 'descripcion',
+            'placeholder'         => 'Descripción de la categoria...',
+            'maxlength'     => '300',
+            'class' => 'textarea',
+
+    );
+      echo form_textarea($descripcion);
+      echo '</div>';
+      echo '</div>';
 
       $forma_boton = array(
         'name' => 'botonregistrar',
@@ -107,16 +112,34 @@
         'type' => 'submit',
 
       );
-      echo form_button($forma_boton, 'Enviar');
+      echo form_button($forma_boton, 'Crear categoría');
           echo form_close();
-
-        } else {
-          
-          redirect('usuarios/login', 'refresh');
-
-
-        }
       ?>
+      <br>
+
+      <nav class="panel">
+  <p class="panel-heading">
+    Lista de categorías
+  </p>
+
+  <?php if (!empty($categorias)) : ?>
+		<?php foreach($categorias as $cate) : ?>
+        <a class="panel-block">
+    <span class="panel-icon">
+      <i class="fas fa-caret-square-right" aria-hidden="true"></i>
+    </span>
+    <?=$cate['nombre']?>
+  </a>
+        <?php endforeach; ?>
+    <?php else : ?>
+    <a class="panel-block">
+    <span class="panel-icon">
+      <i class="fas fa-book" aria-hidden="true"></i>
+    </span>
+Sin categorías
+  </a>    <?php endif; ?>
+ 
+</nav>
             
       </div>
              </div>
