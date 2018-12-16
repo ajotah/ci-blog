@@ -4,7 +4,7 @@
 <!-- Columna Izquierda -->
 <div class="column is-8 is-offset-2 is-offset-one-quarter">
 	<div style="padding: 5px; z-index:1;">
-
+<article>
 	<div class="level">
 		<div class="level-item">
 	<h1 class="subtitle is-2 has-text-weight-light">
@@ -83,6 +83,7 @@
   No hay posts aun... <i class="em em-anguished"></i>
 	</div> 
   <?php endif; ?>
+	</article>
 </div>
 </div>
 </div>

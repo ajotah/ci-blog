@@ -93,8 +93,8 @@
      <script>
          
          $('#summernote').summernote({
+
     height: ($(window).height() - 300),
-    code: '<b>Hola</b>',
     toolbar: [
     ['style',['style']],
     ['style', ['bold', 'italic', 'underline', 'clear']],
@@ -105,6 +105,7 @@
     ['codeview', ['codeview']],
     ['insert',['picture', 'link', 'emoji']]
   ],
+  prettifyHtml : false,
     callbacks: {
         onImageUpload: function(image) {
             uploadImage(image[0]);

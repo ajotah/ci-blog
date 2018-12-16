@@ -18,8 +18,8 @@
 																<div class="level-left"></div>
   <!-- Right side -->
   <div class="level-right">
-    <p class="level-item"><a><span><i class="fab fa-twitter"></i>Twitter</span></a></p>
-    <p class="level-item"><a><span><i class="fas fa-envelope"></i></i>Email</span></a></p>
+    <p class="level-item"><a href="https://twitter.com/<?=$user->twitter?>" target="_blank"><span><i class="fab fa-twitter"></i>Twitter</span></a></p>
+    <p class="level-item"><a href="mailto:<?=$user->email?>"><span><i class="fas fa-envelope"></i></i>Email</span></a></p>
   </div>
 </nav>
 											</div>
@@ -69,6 +69,7 @@
 </div>
 <br>
 <?php endforeach; ?>
+</div>
 </div>
 </div>
 </div>

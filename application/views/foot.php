@@ -12,5 +12,6 @@
     </p>
   </div>
 </footer>
+</main>
 </body>
 </html>
