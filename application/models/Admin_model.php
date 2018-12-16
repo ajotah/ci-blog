@@ -74,6 +74,18 @@ return $cero;
 
   }
 
+  public function titulos($id) {
+
+
+      $this->db->from('posts');
+$this->db->where('id', $id);
+$consulta = $this->db->get();
+$resultado = $consulta->result_array();
+return $resultado;
+
+  
+  }
+
 
 
  }

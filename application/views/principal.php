@@ -57,7 +57,7 @@
 </span>
 </a>
 <? }} ?>
-<a href="<?php echo base_url('index.php/posts/ver/'.$post['id'].''); ?>">
+<a href="<?php echo base_url('index.php/posts/ver/'.$post['id'].'/'.$post['tituloseo'].''); ?>">
 <span class="button is-small is-light">
 <span class="icon is-small">
 <i class="fas fa-glasses"></i>

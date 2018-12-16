@@ -2,7 +2,16 @@
 <html lang="es" dir="ltr" class="has-navbar-fixed-top">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>		
+    <?php if (!empty($titulos)) : ?>
+    <?php foreach($titulos as $titulo) : ?>
+    <?=$titulo['titulo']?> - AbelJStudio.com
+    <?php endforeach; ?>
+    <?php else : ?>
+    Blog - AbelJStudio.com
+    <?php endif; ?>
+
+</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel=”alternate” href="https://abeljstudio.com" hreflang="es-Es" />
 
@@ -82,7 +91,7 @@ html {}
           <div id="navbarExampleTransparentExample" class="navbar-menu">
             <div class="navbar-start">
               <a class="navbar-item" href="<?php echo base_url('index.php/'); ?>">
-                Inicio
+                <b>Inicio</b>
               </a>
               </div>
             </div>

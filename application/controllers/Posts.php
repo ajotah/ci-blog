@@ -70,9 +70,11 @@ if ($this->input->post()) {
 
 public function ver($id=null)
 {
-$this->load->view('head');
+	$this->load->model('admin_model');
+$data['titulos'] = $this->admin_model->titulos($id);
+$this->load->view('head', $data);
 if($id){
-
+	
 $data['contenido'] = $this->posts_model->ver($id);
 $comprobacion = $this->posts_model->autor($id);
 if($comprobacion){
