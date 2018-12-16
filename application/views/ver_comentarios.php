@@ -9,7 +9,12 @@
   <article class="media">
     <figure class="media-left">
       <p class="image is-64x64">
-        <img src="https://bulma.io/images/placeholders/128x128.png">
+        
+      <?php foreach($avatar as $url) : ?>
+
+        <img src="<?php echo base_url()?><?=$url->avatar?>">
+        <?php endforeach; ?>
+
       </p>
     </figure>
     <div class="media-content">

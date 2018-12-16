@@ -20,7 +20,7 @@ if($contar >= 1) {
 
 } else {
 
-
+$rango = "publico";
   $datosregistro = array(
 
   'usuario' => $usuario,
@@ -102,6 +102,15 @@ $this->db->where('id', $id);
 $this->db->set($data);
 $this->db->update('usuarios');
 
+}
+
+public function url_avatar($idusuario){
+
+  $this->db->from('usuarios');
+  $this->db->where('usuario', $idusuario);
+  $consulta = $this->db->get();
+  $resultado = $consulta->result();
+  return $resultado;
 }
 
    }

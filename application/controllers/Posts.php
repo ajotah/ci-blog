@@ -83,7 +83,15 @@ if($comprobacion){
 	$this->load->view('ver_post', $data);
 	$this->load->view('formu_comentarios', $data);
 	$this->load->model('comentarios_model');
+	$this->load->model('usuario_model');
+
 	$data2['comentarios'] = $this->comentarios_model->ver_comentarios($id);
+	$datos = $this->comentarios_model->ver_comentarios($id);
+	foreach($datos as $dato):
+	$idusuario = $dato->usuario;
+	$data2['avatar'] = $this->usuario_model->url_avatar($idusuario);
+	
+	 endforeach;
 	$this->load->view('ver_comentarios', $data2);
 	$this->load->view('foot');
 } else {

@@ -5,6 +5,8 @@ class Comentarios extends CI_Controller {
   public function __construct() {
        parent::__construct();
        $this->load->model('comentarios_model');
+       $this->load->model('usuario_model');
+
     }
 	/**
 	 * Index Page for this controller.
@@ -25,6 +27,8 @@ class Comentarios extends CI_Controller {
 	{
 
     $data['comentarios'] = $this->comentarios_model->listado($id);
+    $idusuario = $data['comentarios']['usuario'];
+    $data['avatar'] = $this->usuario_model->url_avatar($idusuario);
     $this->load->view('ver_comentarios', $data);
 	}
 
