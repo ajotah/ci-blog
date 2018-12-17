@@ -34,7 +34,7 @@
 <article>
 <h2><?=$post['titulo']?></h2>
 
-		<p><?=$post['contenido']?>...</p>
+		<p><?=$post['contenido']?></p>
 </article>
 	</div>
 </div>

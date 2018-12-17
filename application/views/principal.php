@@ -21,7 +21,18 @@
 <article>
 <h2><?=$post['titulo']?></h2>
 
-		<p><?=strip_tags(substr($post['contenido'],0, 300))?>...</p>
+		<p><?
+		$contenido = $post['contenido'];
+		$contenido = preg_replace("/<img[^>]+\>/i", "", $contenido);
+		$contenido = preg_replace("/<span[^>]+\>/i", "", $contenido);
+		$contenido = preg_replace("/<p[^>]+\>/i", "", $contenido);
+		$contenido = preg_replace("/<br[^>]+\>/i", "", $contenido);
+		$contenido = strip_tags($contenido);
+		$contenido = substr($contenido,0, 300);
+		
+
+		echo $contenido;
+		?>...</p>
 </article>
 	</div>
 </div>
@@ -33,7 +44,7 @@
 	<span class="icon is-small">
 	 <i class="far fa-calendar-alt"></i>
 	</span>
-	 <span>12/12/2018</span></span></div>
+	 <span><?=$post['fecha']?></span></span></div>
 </div>
   <div class="level-right">
 		<div class="level-item">
