@@ -88,7 +88,7 @@ echo'<span class="icon is-small is-left">
       echo form_button($forma_boton, 'Enviar');
           echo form_close();
 
-echo '<a class="button is-danger" href="'.base_url("index.php/usuarios/registrar").'">
+echo '<a class="button is-danger" href="'.base_url("usuarios/registrar").'">
 <span class="icon">
 <i class="fas fa-beer"></i>
 </span>

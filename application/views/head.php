@@ -90,7 +90,7 @@ html {}
 
           <div id="navbarExampleTransparentExample" class="navbar-menu">
             <div class="navbar-start">
-              <a class="navbar-item" href="<?php echo base_url('index.php/'); ?>">
+              <a class="navbar-item" href="<?php echo base_url(''); ?>">
                 <b>Inicio</b>
               </a>
               </div>
@@ -102,7 +102,7 @@ html {}
                   <?     if ($this->session->userdata('logged_in')) {
                     ?>
                       <p class="control">
-                      <a class="button" href="<?php echo base_url('index.php/usuarios/logout'); ?>">
+                      <a class="button" href="<?php echo base_url('usuarios/logout'); ?>">
                         <span class="icon">
                           <i class="fas fa-times-circle"></i>
                         </span>
@@ -113,7 +113,7 @@ html {}
                       </p>
               
               <p class="control">
-              <a class="button" href="<?php echo base_url('index.php/usuarios/perfil'); ?>">
+              <a class="button" href="<?php echo base_url('usuarios/perfil'); ?>">
                 <span class="icon">
                   <i class="fas fa-user"></i>
                 </span>
@@ -125,7 +125,7 @@ html {}
                       <?if ($this->session->userdata('rango') == "admin") { ?>
               
               <p class="control">
-              <a class="button" href="<?php echo base_url('index.php/admin'); ?>">
+              <a class="button" href="<?php echo base_url('admin'); ?>">
                 <span class="icon">
                   <i class="fas fa-cog"></i>
                 </span>
@@ -136,7 +136,7 @@ html {}
             </p> <? } ?>
                 <? } else {?>
                   <p class="control">
-                <a class="button" href="<?php echo base_url('index.php/usuarios'); ?>">
+                <a class="button" href="<?php echo base_url('usuarios'); ?>">
                   <span class="icon">
                     <i class="fas fa-user"></i>
                   </span>

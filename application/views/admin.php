@@ -7,7 +7,7 @@
     General
   </p>
   <ul class="menu-list">
-    <li><a href="<?php echo base_url('index.php/admin'); ?>">Dashboard</a></li>
+    <li><a href="<?php echo base_url('admin'); ?>">Dashboard</a></li>
     <li><a>Configuración</a></li>
   </ul>
   <p class="menu-label">
@@ -23,9 +23,9 @@
         Blog
       </p>
       <ul class="menu-list">
-        <li><a href="<?php echo base_url('index.php/posts/addpost'); ?>">Crear post</a></li>
+        <li><a href="<?php echo base_url('posts/addpost'); ?>">Crear post</a></li>
         <li><a>Lista de posts</a></li>
-        <li><a href="<?php echo base_url('index.php/posts/crear_categoria'); ?>">Categorías</a></li>
+        <li><a href="<?php echo base_url('posts/crear_categoria'); ?>">Categorías</a></li>
       </ul>
 
   </ul>
@@ -33,7 +33,7 @@
     Perfil
   </p>
   <ul class="menu-list">
-    <li><a href="<?php echo base_url('index.php/usuarios/perfil'); ?>">Modificar datos</a></li>
+    <li><a href="<?php echo base_url('usuarios/perfil'); ?>">Modificar datos</a></li>
   </ul>
 </aside>
   </div>
@@ -101,7 +101,7 @@
     <tr>
                                                 <td width="5%"><i class="fa fa-comment"></i></td>
                                                 <td><?=$resucomentarios->contenido?></td>
-                                                <td><a class="button is-small is-primary" href="<?php echo base_url('index.php/posts/ver/'.$resucomentarios->articulo.''); ?>" target="_blank">Ver</a></td>
+                                                <td><a class="button is-small is-primary" href="<?php echo base_url('posts/ver/'.$resucomentarios->articulo.''); ?>" target="_blank">Ver</a></td>
                                             </tr>
     <?php endforeach; ?>
     <?php else : ?>

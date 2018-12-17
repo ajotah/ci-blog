@@ -28,7 +28,7 @@
 
   ?>
   <?php foreach($contenido as $post) : ?>
-  <form action="<?php echo base_url('index.php/comentarios/add/'.$post['id'].''); ?>" name="add_comentario" id="add_comentario" class="form" method="post" accept-charset="utf-8">
+  <form action="<?php echo base_url('comentarios/add/'.$post['id'].''); ?>" name="add_comentario" id="add_comentario" class="form" method="post" accept-charset="utf-8">
 <?php endforeach; ?>
   <article class="media">
     <figure class="media-left">
