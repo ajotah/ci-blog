@@ -79,6 +79,7 @@
 </form>
 </div>
 <div class="box">
+<h3 class="title is-3">DATOS PERFIL</h3>
 <?
       $formulario = array(
         'name'      => 'actualizar_perfil',

@@ -93,6 +93,9 @@ html {}
               <a class="navbar-item" href="<?php echo base_url(''); ?>">
                 <b>Inicio</b>
               </a>
+              <a class="navbar-item" href="https://abeljstudio.com/">
+                <b>Conóceme</b>
+              </a>
               </div>
             </div>
 
